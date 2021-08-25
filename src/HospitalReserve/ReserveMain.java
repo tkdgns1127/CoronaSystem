@@ -4,16 +4,22 @@ import java.util.*;
 
 public class ReserveMain { //메인클래스 여기서 실행
 	
-	public static void main(String[] args) {
-		
-		String reserveName = null; //예약자 성명
-		String gender = null;
-		int phoneNum = 0; //전화번호
-		int age = 0;	// 나이
-		int dayNum = 0;	// 예약 날짜
-		boolean input = true; //입력한 게 true이다.
-		
+	//병원 실행 클래스에 들어갈것 (테스트용)
+	public static Hospital01 h1 = new Hospital01();//서울대병원
+	public static Hospital01 h2 = new Hospital01();//아산병원
+	public static Hospital01 h3 = new Hospital01();//이화여대병원
+	
+	
+	String reserveName = null; //예약자 성명
+	String gender = null;
+	int phoneNum = 0; //전화번호
+	int age = 0;	// 나이
+	int dayNum = 0;	// 예약 날짜
+	boolean input = true; //입력한 게 true이다.
+	
+	public void reserveStart() {
 		reserveseat seat = new reserveseat(reserveName, phoneNum);
+		Reserve reserve = new Reserve();
 		
 		Scanner scanner = new Scanner(System.in); //입력할수 있는 스캐너
 		
@@ -25,7 +31,8 @@ public class ReserveMain { //메인클래스 여기서 실행
 			int reservefor = scanner.nextInt(); //위의 메뉴중 4개만 입력 그외는 잘못입력출력
 			switch(reservefor) {
 			case 1: 
-				seat.Seat();			//예약 메소드
+				//seat.Seat();			//예약 메소드
+				 reserve.Seat();
 				break;
 			case 2: 
 				seat.searchSeat();		//조회 메소드
@@ -41,5 +48,14 @@ public class ReserveMain { //메인클래스 여기서 실행
 				System.out.println("잘못 누르셨습니다. 정확한 번호를 입력해주세요.");
 			}
 		}
+	}
+	
+	
+	public static void main(String[] args) {
+	
+		ReserveMain reserve = new ReserveMain();
+		reserve.reserveStart();
+		
+		
 	}
 }

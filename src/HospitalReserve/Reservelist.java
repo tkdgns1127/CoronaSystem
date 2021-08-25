@@ -11,10 +11,10 @@ public class Reservelist { //예약자리스트
 	private String gender; 		//성별
 	private int phoneNum; 		//전화번호
 	private int age; 			//나이
-	private int dayNum;			//예약날짜
+	private String dayNum;			//예약날짜
 	private String seattype;	//자리타입
 	
-	public Reservelist(String name, String gender, int phoneNum, int age, int dayNum, String seattype) { //생성자
+	public Reservelist(String name, String gender, int phoneNum, int age, String dayNum, String seattype) { //생성자
 		this.name = name;
 		this.gender = gender;
 		this.phoneNum = phoneNum;
@@ -46,10 +46,10 @@ public class Reservelist { //예약자리스트
 	public void setAge(int age) {
 		this.age = age;
 	}
-	public int getDayNum() {
+	public String getDayNum() {
 		return dayNum;
 	}
-	public void setDayNum(int dayNum) {
+	public void setDayNum(String dayNum) {
 		this.dayNum = dayNum;
 	}
 	public String getSeattype() {
