@@ -1,9 +1,17 @@
 
 import java.util.Scanner;
 
+import HospitalReserve.Hospital01;
+
 public class Corona19 {
 	
-
+	public static Hospital01 h1 = new Hospital01(10,10);//서울대병원
+	public static Hospital01 h2 = new Hospital01(5,9);//아산병원
+	public static Hospital01 h3 = new Hospital01(2,1);//이화여대병원
+	
+	
+	
+	
 	public void methodA() {Patient pp = new Patient();
 	pp.patientStart();};
 	public void methodB() {System.out.println("병원 프로그램 실행");};

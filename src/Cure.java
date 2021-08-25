@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Cure {
-		ArrayList<Person> treatmentCompletedList = new ArrayList<>();
-		ArrayList<Person> antibodyList = new ArrayList<>();
-		ArrayList<Person> deathList = new ArrayList<>();
+		ArrayList<Person> treatmentCompletedList = new ArrayList<>();	//완치자 리스트
+		ArrayList<Person> antibodyList = new ArrayList<>();				//항생?
+		ArrayList<Person> deathList = new ArrayList<>();				//사망자 리스트
 		
 		
 	public void cureMethod(Scanner scanner){
@@ -17,6 +17,7 @@ public class Cure {
 		
 		 
 		//[이름과 뒷번호가 해당 병원(서울대병원) 예약리스트에 있음]
+		
 		//해당병원리스트에서 비교해야함
 		ArrayList<Person> reserveList = new ArrayList<>();
 		for (Person person : reserveList) {

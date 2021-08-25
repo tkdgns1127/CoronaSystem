@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Consult {
-	ArrayList<Person> coronaTestList = new ArrayList<>();
+	ArrayList<Person> coronaTestList = new ArrayList<>();	//검사 리스트
 		
 	
 	
