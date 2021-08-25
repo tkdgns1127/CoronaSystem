@@ -53,6 +53,7 @@ public class Login {
 					login = false;
 					System.out.println(jj.member.get(i).getName() + "님 환영합니다.");
 					
+					
 				}
 				//System.out.println("비밀번호가 다릅니다.");
 			} 

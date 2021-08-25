@@ -1,4 +1,4 @@
-package corona;
+
 
 import java.util.Scanner;
 
