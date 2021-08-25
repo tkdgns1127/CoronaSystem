@@ -7,7 +7,10 @@ public class ReserveMain { //메인클래스 여기서 실행
 	public static void main(String[] args) {
 		
 		String reserveName = null; //예약자 성명
+		String gender = null;
 		int phoneNum = 0; //전화번호
+		int age = 0;	// 나이
+		int dayNum = 0;	// 예약 날짜
 		boolean input = true; //입력한 게 true이다.
 		
 		reserveseat seat = new reserveseat(reserveName, phoneNum);
@@ -22,13 +25,13 @@ public class ReserveMain { //메인클래스 여기서 실행
 			int reservefor = scanner.nextInt(); //위의 메뉴중 4개만 입력 그외는 잘못입력출력
 			switch(reservefor) {
 			case 1: 
-				seat.Seat();
+				seat.Seat();			//예약 메소드
 				break;
 			case 2: 
-				seat.searchSeat();
+				seat.searchSeat();		//조회 메소드
 				break;
 			case 3: 
-				seat.CancleSeat();
+				seat.CancleSeat();		//취소 메소드
 				break;
 			case 4: // 뒤로가기
 				System.out.println("환자메뉴로 이동합니다.");

@@ -1,4 +1,4 @@
-package corona;
+package Persons;
 
 public class ReservePerson extends Person {
 	
