@@ -5,9 +5,9 @@ import java.util.*;
 public class ReserveMain { //메인클래스 여기서 실행
 	
 	//병원 실행 클래스에 들어갈것 (테스트용)
-	public static Hospital01 h1 = new Hospital01();//서울대병원
-	public static Hospital01 h2 = new Hospital01();//아산병원
-	public static Hospital01 h3 = new Hospital01();//이화여대병원
+	public static Hospital01 h1 = new Hospital01(5,5);//서울대병원
+	public static Hospital01 h2 = new Hospital01(10,2);//아산병원
+	public static Hospital01 h3 = new Hospital01(1,0);//이화여대병원
 	
 	
 	String reserveName = null; //예약자 성명
