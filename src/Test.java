@@ -3,7 +3,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 
-	//Test¸¦ À§ÇÑ arr »ı¼º
+	//Testë¥¼ ìœ„í•œ arr ìƒì„±
 //class A {
 //	
 //	
@@ -11,9 +11,9 @@ import java.util.Scanner;
 //		
 //		ArrayList<Person> arr = new ArrayList<Person>();
 //			
-//			arr.add(new Person("ÀÓÇö°æ", "01055552222"));
-//			arr.add(new Person("È«±æµ¿", "01022223333"));
-//			arr.add(new Person("±è±è±è", "01022224444"));
+//			arr.add(new Person("ì„í˜„ê²½", "01055552222"));
+//			arr.add(new Person("í™ê¸¸ë™", "01022223333"));
+//			arr.add(new Person("ê¹€ê¹€ê¹€", "01022224444"));
 //			
 //			Test test = new Test();
 //				
@@ -23,10 +23,20 @@ import java.util.Scanner;
 
 public class Test {
 	
-// Type 1 - °Ë»ç ÈÄ Á¾·á
+// Type 1 - ê²€ì‚¬ í›„ ì¢…ë£Œ
 	String inputName;
 	String inputPhoneNumber;
-	public static ArrayList<Person> infectionList = new ArrayList<>();		
+	
+	Corona19 c19 = new Corona19();
+	public static ArrayList<Person> infectionList = new ArrayList<>();
+
+	public ArrayList<Person> getinfectionList() {
+		return infectionList;
+	}
+
+	public void setinfectionList(ArrayList<Person> infectionList) {
+		this.infectionList = infectionList;
+	}	
 	
 	void inputInformation(ArrayList<Person> arr) {
 		Scanner scanner = new Scanner(System.in);
@@ -34,13 +44,13 @@ public class Test {
 	
 	
 		while (!checkReservation) {
-			System.out.println("ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+			System.out.println("ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 			inputName = scanner.nextLine();
 			
-			System.out.println("ÀüÈ­¹øÈ£ µŞÀÚ¸®¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+			System.out.println("ì „í™”ë²ˆí˜¸ ë’·ìë¦¬ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 			inputPhoneNumber = scanner.nextLine();
 			
-			// ¿¹¾àÀÚ ¸®½ºÆ®¿Í ÀÔ·Â°ªÀ» ºñ±³
+			// ì˜ˆì•½ì ë¦¬ìŠ¤íŠ¸ì™€ ì…ë ¥ê°’ì„ ë¹„êµ
 			boolean correct = false; 
 			Person reservedPerson = null;
 			
@@ -60,7 +70,7 @@ public class Test {
 				checkReservation = true;
 				randomTest(reservedPerson);
 			} else {
-				System.out.println("ÀÏÄ¡ÇÏ´Â Á¤º¸°¡ ¾ø½À´Ï´Ù.");
+				System.out.println("ì¼ì¹˜í•˜ëŠ” ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.");
 			}
 		} ;
 		
@@ -69,19 +79,19 @@ public class Test {
 	
 	ArrayList<Person> randomTest(Person person) {
 		
-		System.out.println("Corona19 °Ë»ç¸¦ ½ÃÀÛÇÕ´Ï´Ù.");
+		System.out.println("Corona19 ê²€ì‚¬ë¥¼ ì‹œì‘í•©ë‹ˆë‹¤.");
 
 		Random random = new Random();
 		person.confirmed = (random.nextInt(2)!= 0);
 		
 		if(person.confirmed) {
 			infectionList.add(person);
-			System.out.println("Corona19 °Ë»ç °á°ú [¾ç¼º] ÀÔ´Ï´Ù.");
+			System.out.println("Corona19 ê²€ì‚¬ ê²°ê³¼ [ì–‘ì„±] ì…ë‹ˆë‹¤.");
 		} else {
-			System.out.println("Corona19 °Ë»ç °á°ú [À½¼º] ÀÔ´Ï´Ù.");
+			System.out.println("Corona19 ê²€ì‚¬ ê²°ê³¼ [ìŒì„±] ì…ë‹ˆë‹¤.");
 		}
 		
-		// infectionList Ãâ·Â (name) - È®ÀÎ¿ë
+		// infectionList ì¶œë ¥ (name) - í™•ì¸ìš©
 		for (Person p : infectionList) {
 			System.out.println("infectionList: " + p.getName());
 		}
@@ -93,17 +103,17 @@ public class Test {
 }
 
 	
-//Type 1 - °Ë»ç ÈÄ¿¡µµ ÀÌ¸§/¹øÈ£ ¹«ÇÑ ¹İº¹
+//Type 1 - ê²€ì‚¬ í›„ì—ë„ ì´ë¦„/ë²ˆí˜¸ ë¬´í•œ ë°˜ë³µ
 
 //	public void inputInformation(ArrayList<Person> arr) { 
 //		Scanner scanner = new Scanner(System.in);
 //		boolean checkReservation = false;
 //		
 //		while (!checkReservation) {
-//			System.out.println("ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+//			System.out.println("ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 //			inputName = scanner.nextLine();
 //			
-//			System.out.println("ÀüÈ­¹øÈ£ µŞÀÚ¸®¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+//			System.out.println("ì „í™”ë²ˆí˜¸ ë’·ìë¦¬ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 //			inputPhoneNumber = scanner.nextLine();
 //					
 //			for(Person person: arr) {
@@ -113,7 +123,7 @@ public class Test {
 //				
 //				if(inputName.equals(person.name) && lastNum.equals(inputPhoneNumber)) {
 //					
-//					System.out.println("Corona19 °Ë»ç¸¦ ½ÃÀÛÇÕ´Ï´Ù.");
+//					System.out.println("Corona19 ê²€ì‚¬ë¥¼ ì‹œì‘í•©ë‹ˆë‹¤.");
 //					
 //					Random random = new Random();
 //					
@@ -121,13 +131,13 @@ public class Test {
 //					
 //					if(person.confirmed) {
 //						infectionList.add(person);
-//						System.out.println("Corona19 °Ë»ç °á°ú [¾ç¼º] ÀÔ´Ï´Ù."); 
-//						// infectionList Ãâ·Â
+//						System.out.println("Corona19 ê²€ì‚¬ ê²°ê³¼ [ì–‘ì„±] ì…ë‹ˆë‹¤."); 
+//						// infectionList ì¶œë ¥
 //						for (Person p : infectionList) {
-//							System.out.println("°¨¿°ÀÚ ÀÌ¸§: " + p.getName());
+//							System.out.println("ê°ì—¼ì ì´ë¦„: " + p.getName());
 //						}
 //					} else  {
-//						System.out.println("Corona19 °Ë»ç °á°ú [À½¼º] ÀÔ´Ï´Ù.");
+//						System.out.println("Corona19 ê²€ì‚¬ ê²°ê³¼ [ìŒì„±] ì…ë‹ˆë‹¤.");
 //					} 
 //				} 
 //			} 
