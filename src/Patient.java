@@ -7,13 +7,14 @@ public class Patient {
 	Scanner sc = new Scanner(System.in);
 	Test test = new Test();
 	Cure cure = new Cure();
+	ReserveMain reserve = new ReserveMain();
 	
 	public void methodAA() {  consult.conusltMethod(sc);;}
-	public void methodBB() {test.inputInformation(consult.getCoronaTestList());}
-	public void methodCC() {System.out.println("예약 실행 메소드 호출");}
+	public void methodBB() {test.inputInformation(Consult.coronaTestList);}
+	public void methodCC() {reserve.reserveStart();}
 	public void methodDD() {cure.cureMethod(sc);}
 	
-	public void patientStart() {
+	public static void patientStart() {
 		Patient pp = new Patient();	// 상담, 검사, 예약, 치료 객체 생성
 		Corona19 cc = new Corona19();
 		Scanner sc = new Scanner(System.in);

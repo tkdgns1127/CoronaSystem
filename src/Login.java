@@ -10,7 +10,7 @@ public class Login {
 		Join jj = new Join();
 		
 		
-		public void loginTest01() {
+		public void loginTest01(Hospital01 hospital) {
 			Scanner sc = new Scanner(System.in);
 			//에러는 안뜸
 			//ss
@@ -23,17 +23,17 @@ public class Login {
 			
 			
 			if(num == 1) {
-				Hlogin();
+				Hlogin(hospital);
 			}else {
-				jj.join();
-				loginTest01();
+				jj.join(hospital);
+				loginTest01(hospital);
 				
 			}
 			
 		}	
 
 		
-		public void Hlogin() {
+		public void Hlogin(Hospital01 hospital) {
 		
 		Scanner sc = new Scanner(System.in);
 		
@@ -47,11 +47,11 @@ public class Login {
 		System.out.println("비밀번호 : ");
 		pw = sc.nextLine();
 		
-		for (int i =0; i<jj.member.size(); i++) {
-			if(id.equals(jj.member.get(i).getId())) {
-				if(pw.equals(jj.member.get(i).getPw())) {
+		for (int i =0; i<hospital.member.size(); i++) {
+			if(id.equals(hospital.member.get(i).getId())) {
+				if(pw.equals(hospital.member.get(i).getPw())) {
 					login = false;
-					System.out.println(jj.member.get(i).getName() + "님 환영합니다.");
+					System.out.println(hospital.member.get(i).getName() + "님 환영합니다.");
 					
 					
 				}
@@ -62,16 +62,16 @@ public class Login {
 		
 		if(login) {
 			System.out.println("로그인에 실패하셨습니다.");
-			loginTest01();
+			loginTest01(hospital);
 		}
 		
 	
 	}
 		
-		public static void main(String[] args) {
+	/*	public static void main(String[] args) {
 			Login ll = new Login();
 			ll.loginTest01();
 		}
 		
-		
+		*/
 }

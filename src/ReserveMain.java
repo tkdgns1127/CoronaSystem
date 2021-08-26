@@ -1,20 +1,15 @@
-package HospitalReserve;
+
 
 import java.util.*;
 
 public class ReserveMain { //메인클래스 여기서 실행
 	
-	//병원 실행 클래스에 들어갈것 (테스트용)
-	public static Hospital01 h1 = new Hospital01(5,5,1);//서울대병원
-	public static Hospital01 h2 = new Hospital01(10,2,1);//아산병원
-	public static Hospital01 h3 = new Hospital01(1,0,1);//이화여대병원
-	
 	
 	String reserveName = null; //예약자 성명
 	String gender = null;
-	int phoneNum = 0; //전화번호
-	int age = 0;	// 나이
-	int dayNum = 0;	// 예약 날짜
+	int phoneNum = 0; 	//전화번호
+	int age = 0;		// 나이
+	int dayNum = 0;		// 예약 날짜
 	boolean input = true; //입력한 게 true이다.
 	
 	public void reserveStart() {
@@ -23,8 +18,8 @@ public class ReserveMain { //메인클래스 여기서 실행
 		
 		Scanner scanner = new Scanner(System.in); //입력할수 있는 스캐너
 		
-		while(input) { // - 예약 시스템의 메뉴는 "예약", "조회", "취소", "끝내기"가 있다.
-					  // - 없는 이름, 없는 번호, 없는 메뉴, 잘못된 취소 등에 대해서 오류 메시지를 출력하고 사용자가 다시시도하도록 한다.
+		while(input) { 	// - 예약 시스템의 메뉴는 "예약", "조회", "취소", "끝내기"가 있다.
+					  	// - 없는 이름, 없는 번호, 없는 메뉴, 잘못된 취소 등에 대해서 오류 메시지를 출력하고 사용자가 다시시도하도록 한다.
 			System.out.println("==============================");
 			System.out.println("1.예약하기 2.예약조회 3.예약취소 4.뒤로가기");
 			

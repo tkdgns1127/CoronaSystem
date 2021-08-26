@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Consult {
-	ArrayList<Person> coronaTestList = new ArrayList<>();	//검사 리스트
+	public static ArrayList<Person> coronaTestList = new ArrayList<>();	//검사 리스트
 		
-	
+
 	
 	
 	
@@ -26,6 +26,7 @@ public class Consult {
 
 	public void conusltMethod(Scanner scanner) {
 		//Person정보 입력
+				Patient patient = new Patient();
 				System.out.println("이름을 입력하세요.");
 				String name = scanner.nextLine();
 				System.out.println("나이를 입력하세요.");
@@ -75,8 +76,12 @@ public class Consult {
 					coronaTestList.add(person);
 					person.setCheck(true);
 					System.out.println("검사하세요.");
+					System.out.println("메뉴로 이동합니다.");
+					patient.patientStart();	//환자 메뉴로 이동
 				}else {
 					System.out.println("검사 해당자가 아닙니다.");
+					System.out.println("메뉴로 이동합니다.");
+					patient.patientStart();	//환자 메뉴로 이동
 				}
 				
 				

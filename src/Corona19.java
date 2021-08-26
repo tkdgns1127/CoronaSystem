@@ -1,13 +1,12 @@
 
 import java.util.Scanner;
 
-import HospitalReserve.Hospital01;
 
 public class Corona19 {
 	
-	public static Hospital01 h1 = new Hospital01(10,10);//서울대병원
-	public static Hospital01 h2 = new Hospital01(5,9);//아산병원
-	public static Hospital01 h3 = new Hospital01(2,1);//이화여대병원
+	public static Hospital01 h1 = new Hospital01(1111,10,10,"서울대병원");//서울대병원
+	public static Hospital01 h2 = new Hospital01(1234,5,9,"아산병원");//아산병원
+	public static Hospital01 h3 = new Hospital01(0000,2,1,"이화여대병원");//이화여대병원
 	
 	
 	
@@ -47,5 +46,7 @@ public class Corona19 {
 		
 		
 	}
+	
+	
 
 }

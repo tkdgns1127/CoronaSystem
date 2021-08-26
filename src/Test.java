@@ -26,7 +26,7 @@ public class Test {
 // Type 1 - 검사 후 종료
 	String inputName;
 	String inputPhoneNumber;
-	static ArrayList<Person> infectionList = new ArrayList<>();
+	public static ArrayList<Person> infectionList = new ArrayList<>();		
 	
 	void inputInformation(ArrayList<Person> arr) {
 		Scanner scanner = new Scanner(System.in);
@@ -47,7 +47,7 @@ public class Test {
 			for(Person person: arr) {
 				
 				String fullNum = person.phoneNum;
-				String lastNum = fullNum.substring(7);
+				String lastNum = fullNum.substring(9);
 				
 				if(inputName.equals(person.name) && lastNum.equals(inputPhoneNumber)) { 
 					correct = true;
@@ -85,6 +85,8 @@ public class Test {
 		for (Person p : infectionList) {
 			System.out.println("infectionList: " + p.getName());
 		}
+		
+		Patient.patientStart();
 		
 		return infectionList;
 	}
