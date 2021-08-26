@@ -2,13 +2,15 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Join {
 	
-	static ArrayList<Membership> member = new ArrayList<Membership>();
+	//static ArrayList<Membership> member = new ArrayList<Membership>();
 	
-	public void join() {
+	public void join(Hospital01 hospital) {
 
-		int hospital_num = 1111;
+		
+		int hospital_num = hospital.getUnique_num();
 		int unique_num;
 		String name;
 		String id;
@@ -37,19 +39,19 @@ public class Join {
 			System.out.println(" 다시 출력");
 		}else {
 			
-			member.add(new Membership(unique_num,name, id, pw));
+			hospital.member.add(new Membership(unique_num,name, id, pw));
 			System.out.println(name+"님 회원가입을 성공하였습니다.");
 		}
 
 	}
 
-	public static ArrayList<Membership> getMember() {
-		return member;
+	/*public static ArrayList<Membership> getMember() {
+		return hospital.member;
 	}
 
 	public static void setMember(ArrayList<Membership> member) {
 		Join.member = member;
-	}
+	}*/
 
 	
 	
