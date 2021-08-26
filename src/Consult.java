@@ -38,7 +38,7 @@ public class Consult {
 				
 				//질문
 				ArrayList<String> testList = new ArrayList<>();
-				System.out.println();
+				System.out.println("=========================");
 				System.out.println("검사자를 판단하기 위해 총5개의 질문을 합니다.\n yes 또는 no로 입력하세요.");
 				System.out.println("Q1)귀하의 몸에 열이 있나요?");
 				String testA1 = scanner.nextLine();
@@ -79,6 +79,9 @@ public class Consult {
 					System.out.println("검사 해당자가 아닙니다.");
 				}
 				
+				System.out.println("환자메뉴로 돌아갑니다.");
+				Patient pp = new Patient();
+				pp.patientStart();
 				
 	}
 	

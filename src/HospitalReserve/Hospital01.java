@@ -1,5 +1,7 @@
 package HospitalReserve;
 
+import java.util.Scanner;
+
 public class Hospital01 {
 	
 	int vaccin1;		// 화이자
@@ -39,7 +41,15 @@ public class Hospital01 {
 	//확진 여부 메소드(검사)
 	
 	//치료 메소드(치료)
-	
+	public void hospitalCure(Hospital01 hospital,int vaccinSelect) {
+		if(vaccinSelect == 1) {
+			hospital.setVaccin1(hospital.getVaccin1()-1);
+		}else if(vaccinSelect == 2){
+			hospital.setVaccin2(hospital.getVaccin2()-1);
+		}else{
+			System.out.println("잘못 선택하셨습니다.");
+		}
+	}
 	//백신조회 메소드
 	
 	//백신 요청 메소드
