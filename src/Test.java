@@ -26,14 +26,28 @@ public class Test {
 // Type 1 - 검사 후 종료
 	String inputName;
 	String inputPhoneNumber;
-	static ArrayList<Person> infectionList = new ArrayList<>();
+
+	Corona19 c19 = new Corona19();
+	public static ArrayList<Person> infectionList = new ArrayList<>();
+
+	public ArrayList<Person> getinfectionList() {
+		return infectionList;
+	}
+
+	public void setinfectionList(ArrayList<Person> infectionList) {
+		this.infectionList = infectionList;
+	}
 	
-	void inputInformation(ArrayList<Person> arr) {
+	void inputInformation(ArrayList<Person> coronaTestList) {
+		
+		//Test2 
+//		coronaTestList.add(new Person("테스트(2) 김김김(기본)", 22, "010-2555-6666"));
+//		for (Person p : coronaTestList) {
+//			System.out.println("coronaTestList: " + p.getName());
+//		}
+		
 		Scanner scanner = new Scanner(System.in);
-		boolean checkReservation = false;
-	
-	
-		while (!checkReservation) {
+
 			System.out.println("이름을 입력해주세요.");
 			inputName = scanner.nextLine();
 			
@@ -44,10 +58,10 @@ public class Test {
 			boolean correct = false; 
 			Person reservedPerson = null;
 			
-			for(Person person: arr) {
+			for(Person person: coronaTestList) {
 				
 				String fullNum = person.phoneNum;
-				String lastNum = fullNum.substring(7);
+				String lastNum = fullNum.substring(9);
 				
 				if(inputName.equals(person.name) && lastNum.equals(inputPhoneNumber)) { 
 					correct = true;
@@ -57,15 +71,16 @@ public class Test {
 			}
 			
 			if(correct) {
-				checkReservation = true;
 				randomTest(reservedPerson);
 			} else {
-				System.out.println("일치하는 정보가 없습니다.");
+				System.out.println("일치하는 정보가 없습니다. 메뉴로 돌아갑니다.");
+				
+				c19.methodA();
 			}
-		} ;
+			
+			scanner.close();
+		} 
 		
-		scanner.close();
-	}
 	
 	ArrayList<Person> randomTest(Person person) {
 		
@@ -81,12 +96,14 @@ public class Test {
 			System.out.println("Corona19 검사 결과 [음성] 입니다.");
 		}
 		
-		// infectionList 출력 (name) - 확인용
-		for (Person p : infectionList) {
-			System.out.println("infectionList: " + p.getName());
-		}
+		// Test3
+//		for (Person p : infectionList) {
+//			System.out.println("infectionList: " + p.getName());
+//		}
 		
-		return infectionList;
+		c19.methodA();
+		
+		return infectionList;		
 	}
 }
 
