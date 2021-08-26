@@ -14,7 +14,7 @@ class Hospital_Ref {
 		this.v1 = v1;
 		this.v2 = v2;
 	}
-	// 1. 백신 조회
+	// 1. 백신 조회 //
 	public void search( ) {
 		
 		System.out.println("=================================");
