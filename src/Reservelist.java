@@ -1,6 +1,6 @@
 
 
-public class Reservelist { //예약자리스트
+public class Reservelist extends Person{ //예약자리스트
 	
 	/*ArrayList<String> reserveName = new ArrayList<String>(); //이름리스트
 	ArrayList<String> gender = new ArrayList<String>(); // 성별리스트
@@ -9,12 +9,13 @@ public class Reservelist { //예약자리스트
 	
 	private String name; 		//예약자 이름
 	private String gender; 		//성별
-	private int phoneNum; 		//전화번호
+	private String phoneNum; 		//전화번호
 	private int age; 			//나이
 	private String dayNum;			//예약날짜
 	private String seattype;	//자리타입
 	
-	public Reservelist(String name, String gender, int phoneNum, int age, String dayNum, String seattype) { //생성자
+	public Reservelist(String name, String gender, String phoneNum, int age, String dayNum, String seattype) { //생성자
+		super();
 		this.name = name;
 		this.gender = gender;
 		this.phoneNum = phoneNum;
@@ -22,6 +23,7 @@ public class Reservelist { //예약자리스트
 		this.dayNum = dayNum;
 		this.seattype = seattype;
 	}
+	
 	public String getName() {
 		return name;
 	}
@@ -34,10 +36,10 @@ public class Reservelist { //예약자리스트
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public int getPhoneNum() {
+	public String getPhoneNum() {
 		return phoneNum;
 	}
-	public void setPhoneNum(int phoneNum) {
+	public void setPhoneNum(String phoneNum) {
 		this.phoneNum = phoneNum;
 	}
 	public int getAge() {

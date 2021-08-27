@@ -14,6 +14,7 @@ public class ReserveMain { //메인클래스 여기서 실행
 	
 	public void reserveStart() {
 		reserveseat seat = new reserveseat(reserveName, phoneNum);
+		ReservationCancle rc = new ReservationCancle();
 		Reserve reserve = new Reserve();
 		
 		Scanner scanner = new Scanner(System.in); //입력할수 있는 스캐너
@@ -30,13 +31,15 @@ public class ReserveMain { //메인클래스 여기서 실행
 				 reserve.Seat();
 				break;
 			case 2: 
-				seat.searchSeat();		//조회 메소드
+				
+				reserve.searchSeat(Corona19.h1);		//조회 메소드
 				break;
 			case 3: 
-				seat.CancleSeat();		//취소 메소드
+				rc.res_cancle();	//취소 메소드
 				break;
 			case 4: // 뒤로가기
-				System.out.println("환자메뉴로 이동합니다.");
+				
+				Patient.patientStart();
 				input = false;
 				return;
 			default:

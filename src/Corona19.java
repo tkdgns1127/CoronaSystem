@@ -11,10 +11,18 @@ public class Corona19 {
 	
 	
 	
-	public void methodA() {Patient pp = new Patient();
-	pp.patientStart();};
-	public void methodB() {System.out.println("병원 프로그램 실행");};
-	public void methodC() {System.out.println("조회 프로그램 실행");};
+	public void mainPatientStart() {
+		Patient pp = new Patient();
+		pp.patientStart();
+	}
+	public void mainHospitalStart() {
+		HospitalStart hs = new HospitalStart();
+		hs.start();
+	}
+	public void mainSearchStart() {
+		MainSearch ms = new MainSearch();
+		ms.start();
+	}
 	
 	
 	public void coronaSystem() {
@@ -29,11 +37,11 @@ public class Corona19 {
 		System.out.println("===============================");
 		int num = sc.nextInt();
 		if(num == 1) {
-			methodA();
+			mainPatientStart();
 		}else if(num == 2) {
-			methodB();
+			mainHospitalStart();
 		}else {
-			methodC();
+			mainSearchStart();
 		}
 		
 	}

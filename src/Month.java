@@ -19,9 +19,9 @@ public class Month {
 		String trueOrfalse = null;
 		
 		if(tf) {
-			trueOrfalse = "O";
+			trueOrfalse = "O";	//예약 가능
 		}else {
-			trueOrfalse = "X";
+			trueOrfalse = "X";	//예약 불가능
 		}
 		
 		return trueOrfalse;

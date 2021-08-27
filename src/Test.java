@@ -34,6 +34,7 @@ public class Test {
 	
 	
 		while (!checkReservation) {
+			
 			System.out.println("이름을 입력해주세요.");
 			inputName = scanner.nextLine();
 			

@@ -19,7 +19,9 @@ public class MainSearch {
 		}else if(result == 2) {
 			PatientSearch patientsearch = new PatientSearch();
 		}else if(result == 3) {
-			//나이별 클래스 객체 생성
+			ConfirmedByAge cfba =new ConfirmedByAge();
+			cfba.confirmedByAge();
+			
 		}else if(result == 4) {
 			//조회에서 나가서 메인미뉴로 가기
 		}else {
