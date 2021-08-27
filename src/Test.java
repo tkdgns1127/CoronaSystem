@@ -8,7 +8,7 @@ public class Test {
 	
 	
 	
-// Type 1 - ê²€ì‚¬ í›„ ì¢…ë£Œ
+// Type 1 - °Ë»ç ÈÄ Á¾·á
 	String inputName;
 	String inputPhoneNumber;
 	public static ArrayList<Person> infectionList = new ArrayList<>();		
@@ -20,13 +20,13 @@ public class Test {
 	
 		while (!checkReservation) {
 			
-			System.out.println("ì´ë¦„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+			System.out.println("ÀÌ¸§À» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
 			inputName = scanner.nextLine();
 			
-			System.out.println("ì „í™”ë²ˆí˜¸ ë’·ìë¦¬ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+			System.out.println("ÀüÈ­¹øÈ£ µŞÀÚ¸®¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
 			inputPhoneNumber = scanner.nextLine();
 			
-			// ì˜ˆì•½ì ë¦¬ìŠ¤íŠ¸ì™€ ì…ë ¥ê°’ì„ ë¹„êµ
+			// ¿¹¾àÀÚ ¸®½ºÆ®¿Í ÀÔ·Â°ªÀ» ºñ±³
 			boolean correct = false; 
 			Person reservedPerson = null;
 			
@@ -46,7 +46,8 @@ public class Test {
 				checkReservation = true;
 				randomTest(reservedPerson);
 			} else {
-				System.out.println("ì¼ì¹˜í•˜ëŠ” ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤.");
+				System.out.println("ÀÏÄ¡ÇÏ´Â Á¤º¸°¡ ¾ø½À´Ï´Ù.");
+				Patient.patientStart();
 			}
 		} ;
 		
@@ -55,19 +56,20 @@ public class Test {
 	
 	ArrayList<Person> randomTest(Person person) {
 		
-		System.out.println("Corona19 ê²€ì‚¬ë¥¼ ì‹œì‘í•©ë‹ˆë‹¤.");
+		System.out.println("Corona19 °Ë»ç¸¦ ½ÃÀÛÇÕ´Ï´Ù.");
 
 		Random random = new Random();
 		person.confirmed = (random.nextInt(4)!= 0);
+		 
 		
 		if(person.confirmed) {
 			infectionList.add(person);
-			System.out.println("Corona19 ê²€ì‚¬ ê²°ê³¼ [ì–‘ì„±] ì…ë‹ˆë‹¤.");
+			System.out.println("Corona19 °Ë»ç °á°ú [¾ç¼º] ÀÔ´Ï´Ù.");
 		} else {
-			System.out.println("Corona19 ê²€ì‚¬ ê²°ê³¼ [ìŒì„±] ì…ë‹ˆë‹¤.");
+			System.out.println("Corona19 °Ë»ç °á°ú [À½¼º] ÀÔ´Ï´Ù.");
 		}
 		
-		// infectionList ì¶œë ¥ (name) - í™•ì¸ìš©
+		// infectionList Ãâ·Â (name) - È®ÀÎ¿ë
 		for (Person p : infectionList) {
 			System.out.println("infectionList: " + p.getName());
 		}
