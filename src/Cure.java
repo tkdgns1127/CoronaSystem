@@ -27,21 +27,21 @@ public class Cure {
 				int h3vaccinselect = 0;
 				
 				//해당병원의 백신 개수를 불러와야함(1. 모더나[1개], 2. 화이자[2개])
-				if(name.equals("서울대병원")) {
+				if(hospital01.name.equals("서울대병원")) {
 					System.out.println("치료를 시작하겠습니다.");
 					System.out.println("백신을 선택하세요.");
 					System.out.println("1. 모더나[" + h1vaccin1 + "], 2. 화이자["+ h1vaccin2 +"]");
 					System.out.println("1 또는 2를 입력하세요");
 					h1vaccinselect = Integer.parseInt(scanner.nextLine());
 					Corona19.h1.hospitalCure(Corona19.h1, h1vaccinselect);
-				}else if(name.equals("아산병원")) {
+				}else if(hospital01.name.equals("아산병원")) {
 					System.out.println("치료를 시작하겠습니다.");
 					System.out.println("백신을 선택하세요.");
 					System.out.println("1. 모더나[" + h2vaccin1 + "], 2. 화이자["+ h2vaccin2 +"]");
 					System.out.println("1 또는 2를 입력하세요");
 					h2vaccinselect = Integer.parseInt(scanner.nextLine());
 					Corona19.h1.hospitalCure(Corona19.h2, h2vaccinselect);
-				}else if(name.equals("이화여대병원")) {
+				}else if(hospital01.name.equals("이화여대병원")) {
 					System.out.println("치료를 시작하겠습니다.");
 					System.out.println("백신을 선택하세요.");
 					System.out.println("1. 모더나[" + h3vaccin1 + "], 2. 화이자["+ h3vaccin2 +"]");

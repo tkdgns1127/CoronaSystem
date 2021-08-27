@@ -18,7 +18,8 @@ class Reserve{
 		int pre_month = calendar.get(Calendar.MONTH)+1;
 		
 		public void resreve(Hospital01 hospital,String reserveName, String gender, String phoneNum, int age) {
-			Corona19.h1.month.calendar(calendar.get(Calendar.MONTH)+1);
+			
+			hospital.month.calendar(calendar.get(Calendar.MONTH)+1);
 			
 		
 			//입력 받은 일수랑 같은 예약 캘린더의 일수를 찾고 
@@ -30,7 +31,7 @@ class Reserve{
 			System.out.println();
 			String res_day = scanner.nextLine();
 			//Day day : rr.h1.month.day
-			for (int i = 0; i<Corona19.h1.month.day.size(); i++) {
+			for (int i = 0; i<hospital.month.day.size(); i++) {
 			
 				if(hospital.month.day.get(i).getDay().equals(res_day.substring(3))){
 					if(hospital.month.day.get(i).isRes_possibility()) {
@@ -74,7 +75,7 @@ class Reserve{
 				System.out.println("성별 :");
 				String gender = scanner.next();
 				System.out.println("==============================");
-				System.out.println("-를 제외한 전화번호를 입력해주세요!");
+				System.out.println("010-0000-0000형식으를 1전화번호를 입력해주세요!");
 				System.out.println("전화번호 :");
 				String phoneNum = scanner.next(); //int형으로 변경
 				System.out.println("==============================");
@@ -109,24 +110,53 @@ class Reserve{
 		}
 		
 		
-		public void searchSeat(Hospital01 hospital) { //예약조회 메소드
+		public void searchSeat() { //예약조회 메소드
 			String find; //찾는
 			
 			System.out.println("조회하실 분의 전화번호 뒷자리 4자리를 입력해주세요!");
 			find = scanner.nextLine();
 			System.out.println();
 			
-			System.out.println("");
+			//System.out.println(hospital.rl.get(0).getPhoneNum().substring(9));
 		
-			for(int i = 0; i<hospital.rl.size(); i++) {
-				//System.out.println(hospital.rl.get(i).getPhoneNum().equals(find.substring(8)))
-				if(hospital.rl.get(0).getPhoneNum().substring(7).equals(find)) {
-					System.out.println("예약하신분의 전화번호가"+hospital.rl.get(i).getPhoneNum()+"가 맞습니까?");
-					System.out.println(hospital.rl.get(i).getName()+"님의 예약 날짜는"+hospital.rl.get(i).getDayNum()+"입니다.");
-				}else {
-					System.out.println("예약리스트에 없습니다.");
-					System.out.println("예약을 진행해주세요!");
-				}
+			boolean tf = true;
+			
+			
+			for(int i = 0; i<Corona19.h1.rl.size(); i++) {
+				
+				if(Corona19.h1.rl.get(i).getPhoneNum().substring(9).equals(find)) {
+					tf = false;
+					System.out.println("예약하신분의 전화번호가"+Corona19.h1.rl.get(i).getPhoneNum()+"가 맞습니까?");
+					System.out.println(Corona19.h1.rl.get(i).getName()+"님의" + Corona19.h1.name +"예약 날짜는"+Corona19.h1.rl.get(i).getDayNum()+"입니다.");
+				}	
 			}
+			
+			for(int i = 0; i<Corona19.h2.rl.size(); i++) {
+				
+				if(Corona19.h2.rl.get(i).getPhoneNum().substring(9).equals(find)) {
+					tf = false;
+					System.out.println("예약하신분의 전화번호가"+Corona19.h2.rl.get(i).getPhoneNum()+"가 맞습니까?");
+					System.out.println(Corona19.h2.rl.get(i).getName()+"님의" + Corona19.h2.name +"예약 날짜는"+Corona19.h2.rl.get(i).getDayNum()+"입니다.");
+				}	
+			}
+			
+			for(int i = 0; i<Corona19.h3.rl.size(); i++) {
+				
+				if(Corona19.h3.rl.get(i).getPhoneNum().substring(9).equals(find)) {
+					tf = false;
+					System.out.println("예약하신분의 전화번호가"+Corona19.h3.rl.get(i).getPhoneNum()+"가 맞습니까?");
+					System.out.println(Corona19.h3.rl.get(i).getName()+"님의" + Corona19.h3.name +"예약 날짜는"+Corona19.h3.rl.get(i).getDayNum()+"입니다.");
+				}	
+			}
+			
+			
+			
+			
+			if(tf) {
+				{
+				System.out.println("예약리스트에 없습니다.");
+				System.out.println("예약을 진행해주세요!");
+			}
+		}
 		}
 }

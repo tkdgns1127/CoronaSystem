@@ -4,31 +4,34 @@ import java.util.Scanner;
 public class ReservationCancle {	//예약 취소 클래스
 
 	Scanner sc = new Scanner(System.in);
-	String endNum = "010-7927-7479"; 	// 예약 리스트의 뒷번호
-	String phone_num;
+	//String endNum = "010-7927-7479"; 	// 예약 리스트의 뒷번호
+	String endNum;
 	
 	
 	//예약리스트 조회 & 일치 확인 메소드
-	public void res_correct() {
-		//phone_num이 예약 리스트에 있는지 확인
-		/*
-		 * for(; array.size;)
-		 * if(예약자.번호.substring(9).equals(phone_num)){
-		 *  예약자 리스트 출력
-		 * }
-			
-		 */
+	public void res_correct(String endNum) {
+		
+		for (Reservelist element : Corona19.h1.rl) {
+			if(element.getPhoneNum().substring(9).equals(endNum)) {
+				System.out.println("================================================");
+				System.out.println("예약 확인");
+				System.out.println("이름 : " + element.getName() + "\t전화번호 : " + element.getPhoneNum() );
+				System.out.println("예약날짜 " + element.getDayNum() + "\t예약병원 : " +Corona19.h1.name);
+				System.out.println("================================================");
+				System.out.println("예약한 정보가 맞습니까?");
+			}
+		}
 	}
 	
 	
 	
 	public void res_cancle() {	// 예약 취소 메소드
 		
-		System.out.println("예약하신 분의 뒷 번호 4자리를 입력하세요");
+		/*System.out.println("예약하신 분의 뒷 번호 4자리를 입력하세요");
 		System.out.print("뒷 번호 입력 :");
-		phone_num = sc.nextLine();
+		endNum = sc.nextLine();
 		
-		res_correct();
+		res_correct(endNum);
 		
 		if(phone_num.equals(endNum.substring(9))) {
 			//리스트 출력
@@ -45,7 +48,7 @@ public class ReservationCancle {	//예약 취소 클래스
 			
 		}else{
 			System.out.println("예약 리스트에 존재하지 않습니다.");
-		};
+		};*/
 		
 	}
 	

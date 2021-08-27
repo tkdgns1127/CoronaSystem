@@ -6,44 +6,6 @@ public class ConfirmedByAge {	// 나이별 확진자
 	// 확진자 리스트에서 나이대별로(10대, 20대, 30대...) 출력
 	public void confirmedByAge() {
 		
-		ArrayList<Integer> a = new ArrayList<>();	// 확진자 리스트
-		
-		for(int i=0; i<5; i++) {
-			int num = 10 + i;
-			a.add(num);	
-			System.out.println();
-		}
-		
-		for(int i=0; i<3; i++) {
-			int num = 20 + i;
-			a.add(num);	
-		}
-		
-		for(int i=0; i<8; i++) {
-			int num = 30 + i;
-			a.add(num);	
-		}
-		
-		for(int i=0; i<9; i++) {
-			int num = 40 + i;
-			a.add(num);	
-		}
-		
-		for(int i=0; i<7; i++) {
-			int num = 50 + i;
-			a.add(num);	
-		}
-		
-		for(int i=0; i<5; i++) {
-			int num = 60 + i;
-			a.add(num);	
-		}
-		
-		for(int i=0; i<5; i++) {
-			int num = 70 + i;
-			a.add(num);	
-		}
-		
 		
 		int age10=0;
 		int age20=0;
@@ -54,10 +16,10 @@ public class ConfirmedByAge {	// 나이별 확진자
 		int age70=0;
 		int age80=0;
 		
+	
 		
-		
-		for (Integer integer : a) {
-			int i = integer/10;	//확진자.getage()/10;
+		for (Person infection : Test.infectionList) {
+			int i = infection.getAge()/10;	//확진자.getage()/10;
 			if(i == 1) {
 				age10++;
 			}else if(i == 2) {
@@ -88,12 +50,5 @@ public class ConfirmedByAge {	// 나이별 확진자
 		System.out.println("80대 : " + age80 + "명");
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		ConfirmedByAge cc =new ConfirmedByAge();
-		cc.confirmedByAge();
-		
-		
-	}
+	
 }

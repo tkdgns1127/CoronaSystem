@@ -84,7 +84,6 @@ public class Consult {
 					patient.patientStart();	//환자 메뉴로 이동
 				}
 				
-				
 	}
 	
 

@@ -30,9 +30,24 @@ public class ReserveMain { //메인클래스 여기서 실행
 				//seat.Seat();			//예약 메소드
 				 reserve.Seat();
 				break;
-			case 2: 
+			case 2:
 				
-				reserve.searchSeat(Corona19.h1);		//조회 메소드
+				reserve.searchSeat();
+				
+				/*System.out.println("예약한 병원을 선택하세요!!");
+				System.out.println("1.서울대병원 2.아산병원 3.이화여대병원");
+				int num = scanner.nextInt();
+				
+				if(num == 1) {
+					reserve.searchSeat(Corona19.h1);		//조회 메소드
+					
+				}else if(num ==2) {
+					reserve.searchSeat(Corona19.h2);		//조회 메소드
+					
+				}else {
+					
+					reserve.searchSeat(Corona19.h3);		//조회 메소드
+				}*/
 				break;
 			case 3: 
 				rc.res_cancle();	//취소 메소드

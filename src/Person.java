@@ -23,6 +23,15 @@ public class Person {
 	public void setPhoneNum(String phoneNum) {
 		this.phoneNum = phoneNum;
 	}
+	
+	
+	
+	Person(String name,int age,String phoneNum, boolean confirmed){
+		this.name = name;
+		this.age = age;
+		this.phoneNum = phoneNum;
+		this.confirmed = confirmed;
+	}
 
 	Person(String name,int age,String phoneNum){
 		this.name = name;
