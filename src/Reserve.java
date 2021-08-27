@@ -77,7 +77,7 @@ class Reserve{
 				System.out.println("성별 :");
 				String gender = scanner.next();
 				System.out.println("==============================");
-				System.out.println("010-0000-0000형식으를 1전화번호를 입력해주세요!");
+				System.out.println("010-0000-0000형식으로 전화번호를 입력해주세요!");
 				System.out.println("전화번호 :");
 				String phoneNum = scanner.next(); //int형으로 변경
 				System.out.println("==============================");
