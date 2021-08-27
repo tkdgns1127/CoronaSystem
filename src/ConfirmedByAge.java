@@ -48,6 +48,10 @@ public class ConfirmedByAge {	// 나이별 확진자
 		System.out.println("60대 : " + age60 + "명");
 		System.out.println("70대 : " + age70 + "명");
 		System.out.println("80대 : " + age80 + "명");
+		
+		//돌아가기
+		MainSearch mainsearch = new MainSearch();
+		mainsearch.start();
 	}
 
 	

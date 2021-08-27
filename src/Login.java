@@ -40,12 +40,10 @@ public class Login {
 		Scanner sc = new Scanner(System.in);
 		
 		//의원회원 확인용 출력문
+		System.out.println("의사회원리스트출력");
 		for(Membership m : hospital.member) {
-			System.out.println("의사회원리스트출력");
 			System.out.println(m.getName());
 		}
-		
-		
 		
 		
 		System.out.print("아이디 : ");

@@ -2,9 +2,9 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Cure {
-		ArrayList<Person> treatmentCompletedList = new ArrayList<>();	//완치자 리스트
-		ArrayList<Person> antibodyList = new ArrayList<>();				//항생?
-		ArrayList<Person> deathList = new ArrayList<>();				//사망자 리스트
+		public static ArrayList<Person> treatmentCompletedList = new ArrayList<>();	//완치자 리스트
+		public static ArrayList<Person> antibodyList = new ArrayList<>();				//항생?
+		public static ArrayList<Person> deathList = new ArrayList<>();				//사망자 리스트
 		ArrayList<Reservelist> reserveList;
 		
 		
