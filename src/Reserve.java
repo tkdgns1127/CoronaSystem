@@ -19,7 +19,7 @@ class Reserve{
 		
 		public void resreve(Hospital01 hospital,String reserveName, String gender, String phoneNum, int age) {
 			
-			hospital.month.calendar(calendar.get(Calendar.MONTH)+1);
+			hospital.month.calendar(calendar.get(Calendar.MONTH)+2);
 			
 		
 			//입력 받은 일수랑 같은 예약 캘린더의 일수를 찾고 
@@ -27,7 +27,7 @@ class Reserve{
 			//false라면 예약 불가능
 
 			//day.substring(3);	//입력받은 일수
-			System.out.println("예약하실 날짜를 입력하세요 : 예)8/25");
+			System.out.println("예약하실 날짜를 입력하세요 : 예)9/25");
 			System.out.println();
 			String resDay = scanner.nextLine();
 			String[] res_day = resDay.split("/");
@@ -96,16 +96,16 @@ class Reserve{
 					System.out.println("서울대병원을 선택하셨습니다.");
 					
 					res.resreve(Corona19.h1, reserveName, gender, phoneNum, age);
-					
+					break;
 				}else if(hospitals == 2) {	// 아산병원
 					
 					System.out.println("아산병원을 선택하셨습니다.");
 					res.resreve(Corona19.h2, reserveName, gender, phoneNum, age);
-					
-				}else {						// 이화여자 병원
+					break;
+				}else if(hospitals == 3){						// 이화여자 병원
 					System.out.println("아산병원을 선택하셨습니다.");
 					res.resreve(Corona19.h3, reserveName, gender, phoneNum, age);
-					
+					break;
 				}
 				
 			

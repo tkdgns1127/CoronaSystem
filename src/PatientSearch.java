@@ -17,6 +17,7 @@ public class PatientSearch {
 				System.out.println("확진여부 : 확진");
 				System.out.println("나이 : " + person.getAge());
 				System.out.println("번호  : " + person.getPhoneNum());
+				System.out.println();
 			}
 		}
 		
@@ -27,6 +28,7 @@ public class PatientSearch {
 				System.out.println("확진여부 : 완치");
 				System.out.println("나이 : " + person.getAge());
 				System.out.println("번호  : " + person.getPhoneNum());
+				System.out.println();
 			}
 		}
 		
@@ -35,7 +37,8 @@ public class PatientSearch {
 			if (name.equals(person.getName())) {
 				System.out.println("이름 : " + person.getName() + " (사망)");
 				System.out.println("나이 : " + person.getAge());
-				System.out.println("번호  : " + person.getPhoneNum());
+				System.out.println("번호 : " + person.getPhoneNum());
+				System.out.println();
 			}
 		}
 		
@@ -52,6 +55,7 @@ public class PatientSearch {
 		System.out.println("====== " +searchname+"님 검색결과 ======");
 		personSearch(searchname);
 		System.out.println("==========================");
+		System.out.println();
 
 		MainSearch mainsearch = new MainSearch();
 		mainsearch.start();

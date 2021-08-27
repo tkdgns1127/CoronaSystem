@@ -50,15 +50,15 @@ public class Corona19 {
 	public static void main(String[] args) {
 
 		//데이터 입력
-		Test.infectionList.add(new Person("박상훈",25,"010-7927-7479",true));
-		Test.infectionList.add(new Person("이유경",45,"010-7927-7479",true));
-		Test.infectionList.add(new Person("박경한",46,"010-7927-7479",true));
-		Test.infectionList.add(new Person("아이유",29,"010-7927-7479",true));
-		Test.infectionList.add(new Person("이화자",78,"010-7927-7479",true));
-		Test.infectionList.add(new Person("김도현",30,"010-7927-7479",true));
-		Test.infectionList.add(new Person("이기자",38,"010-7927-7479",true));
-		Test.infectionList.add(new Person("지한얼",19,"010-7927-7479",true));
-		Test.infectionList.add(new Person("화이자",61,"010-7927-7479",true));
+		Test.infectionList.add(new Person("박상훈",25,"010-7926-7460",true));
+		Test.infectionList.add(new Person("이유경",45,"010-7925-7471",true));
+		Test.infectionList.add(new Person("박경한",46,"010-7924-7472",true));
+		Test.infectionList.add(new Person("아이유",29,"010-7923-7473",true));
+		Test.infectionList.add(new Person("이화자",78,"010-7922-7474",true));
+		Test.infectionList.add(new Person("김도현",30,"010-7921-7475",true));
+		Test.infectionList.add(new Person("이기자",38,"010-7920-7476",true));
+		Test.infectionList.add(new Person("지한얼",19,"010-7919-7477",true));
+		Test.infectionList.add(new Person("화이자",61,"010-1127-7478",true));
 		
 		
 		
