@@ -81,12 +81,13 @@ public class Cure {
 					deathList.add(person);
 				}
 				}
-				
+				Patient.patientStart();
 				
 			}
 			//예약리스트에 없을경우
 			else {
 				System.out.println("예약자명단에 존재하지 않습니다.");
+				Patient.patientStart();
 			}
 			
 		
