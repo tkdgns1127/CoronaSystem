@@ -7,9 +7,9 @@ public class MainSearch {
 	Scanner scanner = new Scanner(System.in);
 	
 	public void start() {
-		System.out.println("=========================");
-		System.out.println("1.전체 상화판   2.환자 검색   3.나이별 확진자   4. 뒤로가기");
-		System.out.println("=========================");
+		System.out.println("============= 3.조회메뉴 =============");
+		System.out.println("1.전체 상황판   2.환자 검색   3.나이별 확진자   4. 뒤로가기");
+		System.out.println("===================================");
 		
 		System.out.print("메뉴를 입력하세요. : ");
 		int result = Integer.parseInt(scanner.nextLine());
@@ -23,7 +23,8 @@ public class MainSearch {
 			cfba.confirmedByAge();
 			
 		}else if(result == 4) {
-			//조회에서 나가서 메인미뉴로 가기
+			Corona19 corona19 = new Corona19();
+			corona19.coronaSystem();
 		}else {
 			System.out.println("없는 번호 입니다. 번호를 다시 입력해주세요.");
 			start();
