@@ -28,7 +28,7 @@ public class ReservationCancle {	//예약 취소 클래스
 		System.out.print("뒷 번호 입력 :");
 		phone_num = sc.nextLine();
 		
-		//res_correct();
+		res_correct();
 		
 		if(phone_num.equals(endNum.substring(9))) {
 			//리스트 출력

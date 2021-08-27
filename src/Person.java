@@ -9,12 +9,12 @@ public class Person {
 	boolean confirmed = false;		// 확진 여부
 	boolean cure = false;			// 완치 여부
 
-	int month; 						// 확진 월
+	//int month; 						// 확진 월
 	String vaccine;					// 백신(모더나, 화이자)
 	int cure_count;					// 치료 횟수
 	String phoneNum;
 	
-	
+	Person(){}
 
 	public String getPhoneNum() {
 		return phoneNum;
@@ -76,13 +76,6 @@ public class Person {
 		this.cure = cure;
 	}
 	
-	public int getMonth() {
-		return month;
-	}
-	
-	public void setMonth(int month) {
-		this.month = month;
-	}
 	
 	public String getVaccine() {
 		return vaccine;

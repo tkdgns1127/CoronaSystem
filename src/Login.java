@@ -1,4 +1,4 @@
-
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -10,24 +10,26 @@ public class Login {
 		Join jj = new Join();
 		
 		
-		public void loginTest01(Hospital01 hospital) {
+		public void loginstart(Hospital01 hospital) {
 			Scanner sc = new Scanner(System.in);
 			//에러는 안뜸
 			//ss
 			
 			
 			int num;
-			
-			System.out.println("1.로그인 2.회원가입");
+			System.out.println("================================");
+			System.out.println("1.로그인   2.회원가입  3.병원선택으로 돌아가기");
+			System.out.print("숫자를 입력해주세요 : ");
 			num = sc.nextInt();
 			
 			
 			if(num == 1) {
 				Hlogin(hospital);
-			}else {
+			}else if(num == 2) {
 				jj.join(hospital);
-				loginTest01(hospital);
-				
+			}else if(num == 3) {
+				HospitalStart hospitalstart = new HospitalStart();
+				hospitalstart.start();
 			}
 			
 		}	
@@ -37,14 +39,20 @@ public class Login {
 		
 		Scanner sc = new Scanner(System.in);
 		
+		//의원회원 확인용 출력문
+		for(Membership m : hospital.member) {
+			System.out.println("의사회원리스트출력");
+			System.out.println(m.getName());
+		}
 		
 		
 		
-		System.out.println("아이디 : ");
+		
+		System.out.print("아이디 : ");
 		id = sc.nextLine();
 		
 		
-		System.out.println("비밀번호 : ");
+		System.out.print("비밀번호 : ");
 		pw = sc.nextLine();
 		
 		for (int i =0; i<hospital.member.size(); i++) {
@@ -53,7 +61,10 @@ public class Login {
 					login = false;
 					System.out.println(hospital.member.get(i).getName() + "님 환영합니다.");
 					
-					
+					//로그인 성공해서 병원 메뉴로 들어가기
+					HospitalStart hs = new HospitalStart();
+					int num = Arrays.asList(hs.hospitalarraylist).indexOf(hospital);
+					hs.hospitalstart(num);
 				}
 				//System.out.println("비밀번호가 다릅니다.");
 			} 
@@ -62,7 +73,7 @@ public class Login {
 		
 		if(login) {
 			System.out.println("로그인에 실패하셨습니다.");
-			loginTest01(hospital);
+			loginstart(hospital);
 		}
 		
 	
