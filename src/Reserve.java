@@ -5,12 +5,12 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 class Reserve{
-		String reserveName = null; 		//¿¹¾àÀÚ ¼º¸í
-		String gender = null; 			//¼ºº°
-		String phoneNum = null; 				//ÀüÈ­¹øÈ£
-		int age = 0;					//³ªÀÌ
-		String dayNum = null; 				//¿¹¾à³¯Â¥
-		String seattype = null; 		//ÀÚ¸®Å¸ÀÔ
+		String reserveName = null; 		//ì˜ˆì•½ì ì„±ëª…
+		String gender = null; 			//ì„±ë³„
+		String phoneNum = null; 				//ì „í™”ë²ˆí˜¸
+		int age = 0;					//ë‚˜ì´
+		String dayNum = null; 				//ì˜ˆì•½ë‚ ì§œ
+		String seattype = null; 		//ìë¦¬íƒ€ì…
 		
 		ReserveMain rr = new ReserveMain();
 		Scanner scanner = new Scanner(System.in);
@@ -22,34 +22,39 @@ class Reserve{
 			hospital.month.calendar(calendar.get(Calendar.MONTH)+1);
 			
 		
-			//ÀÔ·Â ¹ŞÀº ÀÏ¼ö¶û °°Àº ¿¹¾à Ä¶¸°´õÀÇ ÀÏ¼ö¸¦ Ã£°í 
-			//±× ÀÏ¼öÀÇ positive°¡ trueÀÎÁö È®ÀÎ ÈÄ true¶ó¸é false·Î ¹Ù²Ù°í ¿¹¾àÀ» ÁøÇà 
-			//false¶ó¸é ¿¹¾à ºÒ°¡´É
+			//ì…ë ¥ ë°›ì€ ì¼ìˆ˜ë‘ ê°™ì€ ì˜ˆì•½ ìº˜ë¦°ë”ì˜ ì¼ìˆ˜ë¥¼ ì°¾ê³  
+			//ê·¸ ì¼ìˆ˜ì˜ positiveê°€ trueì¸ì§€ í™•ì¸ í›„ trueë¼ë©´ falseë¡œ ë°”ê¾¸ê³  ì˜ˆì•½ì„ ì§„í–‰ 
+			//falseë¼ë©´ ì˜ˆì•½ ë¶ˆê°€ëŠ¥
 
-			//day.substring(3);	//ÀÔ·Â¹ŞÀº ÀÏ¼ö
-			System.out.println("¿¹¾àÇÏ½Ç ³¯Â¥¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ¿¹)08/25");
+			
+			
+			
+			//day.substring(3);	//ì…ë ¥ë°›ì€ ì¼ìˆ˜
+						System.out.println("ì˜ˆì•½í•˜ì‹¤ ë‚ ì§œë¥¼ ì…ë ¥í•˜ì„¸ìš” : ì˜ˆ)8/25");
 			System.out.println();
-			String res_day = scanner.nextLine();
+			String resDay = scanner.nextLine();
+			String[] res_day = resDay.split("/");
+			String res_day1 = res_day[1];
 			//Day day : rr.h1.month.day
 			for (int i = 0; i<hospital.month.day.size(); i++) {
 			
-				if(hospital.month.day.get(i).getDay().equals(res_day.substring(3))){
+				if(hospital.month.day.get(i).getDay().equals(res_day1)){
 					if(hospital.month.day.get(i).isRes_possibility()) {
 					
 						hospital.month.day.get(i).setRes_possibility(false);
-						//¸ğµçÀÔ·Â¿Ï·á ÈÄ ¸®½ºÆ®·Î ÀúÀå
-						dayNum = res_day;
+						//ëª¨ë“ ì…ë ¥ì™„ë£Œ í›„ ë¦¬ìŠ¤íŠ¸ë¡œ ì €ì¥
+						dayNum = resDay;
 					
 						hospital.rl.add(new Reservelist(reserveName,gender,phoneNum,age,dayNum,seattype));
-						System.out.println("¿¹¾àÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
-						System.out.println(reserveName+"´ÔÀÇ ¿¹¾àÀÏÀº " + dayNum + " ÀÏÀÔ´Ï´Ù");
+						System.out.println("ì˜ˆì•½ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
+						System.out.println(reserveName+"ë‹˜ì˜ ì˜ˆì•½ì¼ì€ " + dayNum + " ì¼ì…ë‹ˆë‹¤");
 						System.out.println("");
-						System.out.println("¸Ş´º·Î ÀÌµ¿ÇÏ°Ú½À´Ï´Ù.");
+						System.out.println("ë©”ë‰´ë¡œ ì´ë™í•˜ê² ìŠµë‹ˆë‹¤.");
 						rr.reserveStart();
 
 					
 					}else {
-						System.out.println("¿¹¾à °¡´ÉÇÑ ³¯Â¥¸¦ °ñ¶ó ÁÖ¼¼¿ä");
+						System.out.println("ì˜ˆì•½ ê°€ëŠ¥í•œ ë‚ ì§œë¥¼ ê³¨ë¼ ì£¼ì„¸ìš”");
 					}
 				}
 			}
@@ -59,48 +64,49 @@ class Reserve{
 		
 		//static ArrayList<Reservelist> rl = new ArrayList<Reservelist>();
 		
-		public void Seat() { 					//¿¹¾à¸Ş¼Òµå
-			// ¿¹¾à - ¿¹¾àÀº ÇÑ ´Ş¿¡ ÀÖ´Â ÀÏ¼ö·Î¸¸ °è»êÇÑ´Ù.
-			// - ÀÚ¸®´Â A¼®,B¼®À¸·Î³ª´µ¸ç,°¢°¢ 2°³ÀÇ ÀÚ¸®°¡ ÀÖ´Ù.
+		public void Seat() { 					//ì˜ˆì•½ë©”ì†Œë“œ
+			// ì˜ˆì•½ - ì˜ˆì•½ì€ í•œ ë‹¬ì— ìˆëŠ” ì¼ìˆ˜ë¡œë§Œ ê³„ì‚°í•œë‹¤.
+			// - ìë¦¬ëŠ” Aì„,Bì„ìœ¼ë¡œë‚˜ë‰˜ë©°,ê°ê° 2ê°œì˜ ìë¦¬ê°€ ìˆë‹¤.
 			Reserve res = new Reserve();
 			
-			while(true) { //Á¶°ÇÀÌ trueÀÏ °æ¿ì °è¼ÓÇØ¼­ ¹İº¹
-				//if/else¹® Ãß°¡
+			while(true) { //ì¡°ê±´ì´ trueì¼ ê²½ìš° ê³„ì†í•´ì„œ ë°˜ë³µ
+				//if/elseë¬¸ ì¶”ê°€
 				System.out.println("==============================");
-				System.out.println("¿¹¾àÇÏ½Ã·Á´Â ºĞÀÇ ¼ºÇÔÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä!");
-				System.out.println("¼º¸í :");
+				System.out.println("ì˜ˆì•½í•˜ì‹œë ¤ëŠ” ë¶„ì˜ ì„±í•¨ì„ ì…ë ¥í•´ì£¼ì„¸ìš”!");
+				System.out.println("ì„±ëª… :");
 				String reserveName = scanner.next();
 				System.out.println("==============================");
-				System.out.println("¼ºº°À» ÀÔ·ÂÇØÁÖ¼¼¿ä! ex) ³² / ¿©");
-				System.out.println("¼ºº° :");
+				System.out.println("ì„±ë³„ì„ ì…ë ¥í•´ì£¼ì„¸ìš”! ex) ë‚¨ / ì—¬");
+				System.out.println("ì„±ë³„ :");
 				String gender = scanner.next();
 				System.out.println("==============================");
-				System.out.println("010-0000-0000Çü½ÄÀ¸¸¦ 1ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!");
-				System.out.println("ÀüÈ­¹øÈ£ :");
-				String phoneNum = scanner.next(); //intÇüÀ¸·Î º¯°æ
+				System.out.println("010-0000-0000í˜•ì‹ìœ¼ë¥¼ 1ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!");
+				System.out.println("ì „í™”ë²ˆí˜¸ :");
+				String phoneNum = scanner.next(); //intí˜•ìœ¼ë¡œ ë³€ê²½
 				System.out.println("==============================");
-				System.out.println("³ªÀÌ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!");
-				System.out.println("³ªÀÌ :");
+				System.out.println("ë‚˜ì´ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!");
+				System.out.println("ë‚˜ì´ :");
 				int age = scanner.nextInt();
 				System.out.println("=============================="); //
-				System.out.println("¿¹¾àÇÏ½Ç º´¿øÀ» ¼±ÅÃÇØÁÖ¼¼¿ä!");
-				System.out.println("1.¼­¿ï´ëº´¿ø 2.¾Æ»êº´¿ø 3.ÀÌÈ­¿©´ëº´¿ø");
+				System.out.println("ì˜ˆì•½í•˜ì‹¤ ë³‘ì›ì„ ì„ íƒí•´ì£¼ì„¸ìš”!");
+				System.out.println("1.ì„œìš¸ëŒ€ë³‘ì› 2.ì•„ì‚°ë³‘ì› 3.ì´í™”ì—¬ëŒ€ë³‘ì›");
 				int hospitals = scanner.nextInt();
 				System.out.println();
 				
 				
-				//º´¿ø ¼±ÅÃ	[1.¼­¿ï´ëº´¿ø 2.¾Æ»êº´¿ø 3.ÀÌÈ­¿©´ëº´¿ø]
+				//ë³‘ì› ì„ íƒ	[1.ì„œìš¸ëŒ€ë³‘ì› 2.ì•„ì‚°ë³‘ì› 3.ì´í™”ì—¬ëŒ€ë³‘ì›]
 				if(hospitals == 1) {
-					System.out.println("¼­¿ï´ëº´¿øÀ» ¼±ÅÃÇÏ¼Ì½À´Ï´Ù.");
+					System.out.println("ì„œìš¸ëŒ€ë³‘ì›ì„ ì„ íƒí•˜ì…¨ìŠµë‹ˆë‹¤.");
 					
 					res.resreve(Corona19.h1, reserveName, gender, phoneNum, age);
 					
-				}else if(hospitals == 2) {	// ¾Æ»êº´¿ø
+				}else if(hospitals == 2) {	// ì•„ì‚°ë³‘ì›
 					
-					System.out.println("¾Æ»êº´¿øÀ» ¼±ÅÃÇÏ¼Ì½À´Ï´Ù.");
+					System.out.println("ì•„ì‚°ë³‘ì›ì„ ì„ íƒí•˜ì…¨ìŠµë‹ˆë‹¤.");
 					res.resreve(Corona19.h2, reserveName, gender, phoneNum, age);
 					
-				}else {						// ÀÌÈ­¿©ÀÚ º´¿ø
+				}else {						// ì´í™”ì—¬ì ë³‘ì›
+					System.out.println("ì´í™”ì—¬ëŒ€ë³‘ì›ì„ ì„ íƒí•˜ì…¨ìŠµë‹ˆë‹¤.");
 					res.resreve(Corona19.h3, reserveName, gender, phoneNum, age);
 					
 				}
@@ -110,15 +116,14 @@ class Reserve{
 		}
 		
 		
-		public void searchSeat() { //¿¹¾àÁ¶È¸ ¸Ş¼Òµå
-			String find; //Ã£´Â
+		public void searchSeat() { //ì˜ˆì•½ì¡°íšŒ ë©”ì†Œë“œ
+			String find; //ì°¾ëŠ”
 			
-			System.out.println("Á¶È¸ÇÏ½Ç ºĞÀÇ ÀüÈ­¹øÈ£ µŞÀÚ¸® 4ÀÚ¸®¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä!");
+			System.out.println("ì¡°íšŒí•˜ì‹¤ ë¶„ì˜ ì „í™”ë²ˆí˜¸ ë’·ìë¦¬ 4ìë¦¬ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”!");
 			find = scanner.nextLine();
 			System.out.println();
 			
-			//System.out.println(hospital.rl.get(0).getPhoneNum().substring(9));
-		
+
 			boolean tf = true;
 			
 			
@@ -126,8 +131,8 @@ class Reserve{
 				
 				if(Corona19.h1.rl.get(i).getPhoneNum().substring(9).equals(find)) {
 					tf = false;
-					System.out.println("¿¹¾àÇÏ½ÅºĞÀÇ ÀüÈ­¹øÈ£°¡"+Corona19.h1.rl.get(i).getPhoneNum()+"°¡ ¸Â½À´Ï±î?");
-					System.out.println(Corona19.h1.rl.get(i).getName()+"´ÔÀÇ" + Corona19.h1.name +"¿¹¾à ³¯Â¥´Â"+Corona19.h1.rl.get(i).getDayNum()+"ÀÔ´Ï´Ù.");
+					System.out.println("ì˜ˆì•½í•˜ì‹ ë¶„ì˜ ì „í™”ë²ˆí˜¸ê°€"+Corona19.h1.rl.get(i).getPhoneNum()+"ê°€ ë§ìŠµë‹ˆê¹Œ?");
+					System.out.println(Corona19.h1.rl.get(i).getName()+"ë‹˜ì˜" + Corona19.h1.name +"ì˜ˆì•½ ë‚ ì§œëŠ”"+Corona19.h1.rl.get(i).getDayNum()+"ì…ë‹ˆë‹¤.");
 				}	
 			}
 			
@@ -135,8 +140,8 @@ class Reserve{
 				
 				if(Corona19.h2.rl.get(i).getPhoneNum().substring(9).equals(find)) {
 					tf = false;
-					System.out.println("¿¹¾àÇÏ½ÅºĞÀÇ ÀüÈ­¹øÈ£°¡"+Corona19.h2.rl.get(i).getPhoneNum()+"°¡ ¸Â½À´Ï±î?");
-					System.out.println(Corona19.h2.rl.get(i).getName()+"´ÔÀÇ" + Corona19.h2.name +"¿¹¾à ³¯Â¥´Â"+Corona19.h2.rl.get(i).getDayNum()+"ÀÔ´Ï´Ù.");
+					System.out.println("ì˜ˆì•½í•˜ì‹ ë¶„ì˜ ì „í™”ë²ˆí˜¸ê°€"+Corona19.h2.rl.get(i).getPhoneNum()+"ê°€ ë§ìŠµë‹ˆê¹Œ?");
+					System.out.println(Corona19.h2.rl.get(i).getName()+"ë‹˜ì˜" + Corona19.h2.name +"ì˜ˆì•½ ë‚ ì§œëŠ”"+Corona19.h2.rl.get(i).getDayNum()+"ì…ë‹ˆë‹¤.");
 				}	
 			}
 			
@@ -144,8 +149,8 @@ class Reserve{
 				
 				if(Corona19.h3.rl.get(i).getPhoneNum().substring(9).equals(find)) {
 					tf = false;
-					System.out.println("¿¹¾àÇÏ½ÅºĞÀÇ ÀüÈ­¹øÈ£°¡"+Corona19.h3.rl.get(i).getPhoneNum()+"°¡ ¸Â½À´Ï±î?");
-					System.out.println(Corona19.h3.rl.get(i).getName()+"´ÔÀÇ" + Corona19.h3.name +"¿¹¾à ³¯Â¥´Â"+Corona19.h3.rl.get(i).getDayNum()+"ÀÔ´Ï´Ù.");
+					System.out.println("ì˜ˆì•½í•˜ì‹ ë¶„ì˜ ì „í™”ë²ˆí˜¸ê°€"+Corona19.h3.rl.get(i).getPhoneNum()+"ê°€ ë§ìŠµë‹ˆê¹Œ?");
+					System.out.println(Corona19.h3.rl.get(i).getName()+"ë‹˜ì˜" + Corona19.h3.name +"ì˜ˆì•½ ë‚ ì§œëŠ”"+Corona19.h3.rl.get(i).getDayNum()+"ì…ë‹ˆë‹¤.");
 				}	
 			}
 			
@@ -154,8 +159,8 @@ class Reserve{
 			
 			if(tf) {
 				{
-				System.out.println("¿¹¾à¸®½ºÆ®¿¡ ¾ø½À´Ï´Ù.");
-				System.out.println("¿¹¾àÀ» ÁøÇàÇØÁÖ¼¼¿ä!");
+				System.out.println("ì˜ˆì•½ë¦¬ìŠ¤íŠ¸ì— ì—†ìŠµë‹ˆë‹¤.");
+				System.out.println("ì˜ˆì•½ì„ ì§„í–‰í•´ì£¼ì„¸ìš”!");
 			}
 		}
 		}
