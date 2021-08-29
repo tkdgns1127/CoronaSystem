@@ -12,9 +12,8 @@ public class Test {
 	void inputInformation(ArrayList<Person> arr) {
 		Scanner scanner = new Scanner(System.in);
 		boolean checkReservation = false;
-	
-	
-		//1. 입력값 오류 확
+		
+		// 예외 처리
 		
 		try {
 			while (!checkReservation) {
