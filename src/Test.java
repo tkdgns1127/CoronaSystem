@@ -43,14 +43,14 @@ public class Test {
 				// inputPhoneNumber 숫자만 포함되어있는지 체크하는 정규표현식
 				String pattern2 = "^[0-9]*$";
 				
-				//값이 입력되지 않았을때?
+				//값이 입력되지 않았을때? //
 				
 				if(inputPhoneNumber.equals("")) {
 					
 					System.out.println("번호가 입력되지 않았습니다. 다시 확인해주세요.");
 					continue;	
 					
-				// inputPhoneNumber 입력값의 길이가 4가 아니거거나, 숫자가 아닐때
+				// inputPhoneNumber 입력값의 길이가 4가 아니거나, 숫자가 아닐때
 				} else if (inputPhoneNumber.length() != 4 || !Pattern.matches(pattern2, inputPhoneNumber)) {
 					System.out.println("올바른 번호 형식이 아닙니다. 다시 확인해주세요.");
 					continue;
