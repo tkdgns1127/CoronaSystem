@@ -1,6 +1,6 @@
 
 import java.util.Scanner;
-
+import java.util.InputMismatchException;
 
 public class Corona19 {
 	
@@ -35,13 +35,20 @@ public class Corona19 {
 		System.out.println("메뉴를 선택하세요!");
 		System.out.println("1.환자 2.병원 3.조회");
 		System.out.println("===============================");
-		int num = sc.nextInt();
-		if(num == 1) {
-			mainPatientStart();
-		}else if(num == 2) {
-			mainHospitalStart();
-		}else {
-			mainSearchStart();
+		try {
+			int num = sc.nextInt();
+			if(num == 1) {
+				mainPatientStart();
+			}else if(num == 2) {
+				mainHospitalStart();
+			}else if(num == 3) {
+				mainSearchStart();
+			}else 
+				System.out.println("숫자를 다시 입력하세요.");
+				coronaSystem();
+		}catch(InputMismatchException e){
+			System.out.println("숫자만 입력하세요.");
+			coronaSystem();
 		}
 		
 	}
@@ -60,17 +67,8 @@ public class Corona19 {
 		Test.infectionList.add(new Person("지한얼",19,"010-7927-7479",true));
 		Test.infectionList.add(new Person("화이자",61,"010-7927-7479",true));
 		
-		
-		
 		Corona19 corona = new Corona19();// 환자 클래스, 병원 클래스, 조회 클래스 객체 생성
 		corona.coronaSystem();
 		
-
-		
-		
-		
 	}
-	
-	
-
 }

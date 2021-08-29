@@ -1,6 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
-
+import java.util.InputMismatchException;
 
 public class Login {
 
@@ -13,13 +13,15 @@ public class Login {
 		public void loginstart(Hospital01 hospital) {
 			Scanner sc = new Scanner(System.in);
 			//에러는 안뜸
-			//ss
+		
 			
 			
 			int num;
 			System.out.println("================================");
 			System.out.println("1.로그인   2.회원가입  3.병원선택으로 돌아가기");
 			System.out.print("숫자를 입력해주세요 : ");
+			
+			try {
 			num = sc.nextInt();
 			
 			
@@ -30,6 +32,13 @@ public class Login {
 			}else if(num == 3) {
 				HospitalStart hospitalstart = new HospitalStart();
 				hospitalstart.start();
+			}else {
+				System.out.println("다시 입력하세요.");
+				loginstart(hospital);
+			}
+			}catch(InputMismatchException e) {
+				System.out.println("숫자만 입력하세요.");
+				loginstart(hospital);
 			}
 			
 		}	
@@ -40,11 +49,11 @@ public class Login {
 		Scanner sc = new Scanner(System.in);
 		
 		//의원회원 확인용 출력문
-		System.out.println("의사회원리스트출력");
+		System.out.print("(의사회원리스트출력 : ");
 		for(Membership m : hospital.member) {
-			System.out.println(m.getName());
+			System.out.print(m.getName() + " ");
 		}
-		
+		System.out.println(")");
 		
 		System.out.print("아이디 : ");
 		id = sc.nextLine();
@@ -68,13 +77,10 @@ public class Login {
 			} 
 		}
 		
-		
 		if(login) {
 			System.out.println("로그인에 실패하셨습니다.");
 			loginstart(hospital);
 		}
-		
-	
 	}
 		
 	/*	public static void main(String[] args) {
