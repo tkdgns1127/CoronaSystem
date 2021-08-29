@@ -29,7 +29,6 @@ public class Consult {
 		//Person정보 입력
 				
 				try {
-				
 				System.out.println("이름을 입력하세요.");
 				String name = scanner.nextLine();
 				System.out.println("나이를 입력하세요.");

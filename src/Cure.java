@@ -50,8 +50,7 @@ public class Cure {
 					Corona19.h1.hospitalCure(Corona19.h3, h3vaccinselect);
 				}else {
 					System.out.println("병원을 잘못 기입하였습니다.");
-					Patient pp = new Patient();
-					pp.patientStart();
+					Patient.patientStart();
 					break;
 				}
 				
@@ -80,6 +79,7 @@ public class Cure {
 						//사망자리스트에 추가?
 					deathList.add(person);
 				}
+				Patient.patientStart();
 				}
 				
 				
@@ -87,6 +87,7 @@ public class Cure {
 			//예약리스트에 없을경우
 			else {
 				System.out.println("예약자명단에 존재하지 않습니다.");
+				
 			}
 			
 		
@@ -116,7 +117,7 @@ public class Cure {
 			cure.res_check(Corona19.h3, name, phoneNum4);
 			
 		}
-		 
+		Patient.patientStart();
 		//[이름과 뒷번호가 해당 병원(서울대병원) 예약리스트에 있음]
 		
 		

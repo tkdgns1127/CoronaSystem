@@ -66,7 +66,7 @@ class Reserve{
 			// - 자리는 A석,B석으로나뉘며,각각 2개의 자리가 있다.
 			Reserve res = new Reserve();
 			
-			while(true) { //조건이 true일 경우 계속해서 반복
+			
 				//if/else문 추가
 				System.out.println("==============================");
 				System.out.println("예약하시려는 분의 성함을 입력해주세요!");
@@ -110,7 +110,6 @@ class Reserve{
 				
 			
 			}
-		}
 		
 		
 		public void searchSeat() { //예약조회 메소드
