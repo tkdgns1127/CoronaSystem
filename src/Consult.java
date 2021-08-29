@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class Consult {
 	public static ArrayList<Person> coronaTestList = new ArrayList<>();	//검사 리스트
@@ -26,13 +27,18 @@ public class Consult {
 
 	public void conusltMethod(Scanner scanner) {
 		//Person정보 입력
-				Patient patient = new Patient();
+				
+				try {
+				
 				System.out.println("이름을 입력하세요.");
 				String name = scanner.nextLine();
 				System.out.println("나이를 입력하세요.");
 				int age = Integer.parseInt(scanner.nextLine());
-				System.out.println("전화번호를 입력하세요.\n 형식:ooo-oooo-oooo");
+				System.out.println("전화번호를 입력하세요.\n 형식:010-oooo-oooo");
 				String phoneNum = scanner.nextLine();
+				
+				boolean flag = Pattern.matches("^01(?:0|1|[6-9])-(?:\\d{3}|\\d{4})-\\d{4}$", phoneNum);
+				if(flag) {
 				
 				//Person객체 생성하여 정보 등록
 				Person person = new Person(name,age,phoneNum);
@@ -77,11 +83,20 @@ public class Consult {
 					person.setCheck(true);
 					System.out.println("검사하세요.");
 					System.out.println("메뉴로 이동합니다.");
-					patient.patientStart();	//환자 메뉴로 이동
 				}else {
 					System.out.println("검사 해당자가 아닙니다.");
 					System.out.println("메뉴로 이동합니다.");
-					patient.patientStart();	//환자 메뉴로 이동
+				}
+				
+				}else {
+				System.out.println("전화번호 형식에 맞지 않습니다.");
+				}
+				
+				} catch (Exception e) {
+					//e.printStackTrace();
+					System.out.println(e.getMessage() + " 오류 발생");
+				} finally {
+					Patient.patientStart();
 				}
 				
 	}
