@@ -17,7 +17,7 @@ public class LoginTest {
 		num = sc.nextInt();
 		
 		
-		if(num == 1) {
+		if (num == 1) {
 			ll.Hlogin(hospital);
 		}else {
 			jj.join(hospital);
