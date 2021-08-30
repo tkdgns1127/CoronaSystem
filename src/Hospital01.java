@@ -3,17 +3,17 @@ import java.util.ArrayList;
 
 public class Hospital01 {
 
-	private int vaccin1; // È­ÀÌÀÚ
-	private int vaccin2; // ¸ğ´õ³ª
+	private int vaccin1; // í™”ì´ì
+	private int vaccin2; // ëª¨ë”ë‚˜
 
-	String name; // º´¿ø ÀÌ¸§
-	private int unique_num; // º´¿ø °íÀ¯ ¹øÈ£
+	String name; // ë³‘ì› ì´ë¦„
+	private int unique_num; // ë³‘ì› ê³ ìœ  ë²ˆí˜¸
 
-	Month month = new Month(); // Ä¶¸°´õ
+	Month month = new Month(); // ìº˜ë¦°ë”
 
-	ArrayList<Membership> member = new ArrayList<Membership>(); // º´¿ø °ü°èÀÚ
+	ArrayList<Membership> member = new ArrayList<Membership>(); // ë³‘ì› ê´€ê³„ì
 
-	ArrayList<Reservelist> rl = new ArrayList<Reservelist>(); // ¿¹¾à ¸®½ºÆ®
+	ArrayList<Reservelist> rl = new ArrayList<Reservelist>(); // ì˜ˆì•½ ë¦¬ìŠ¤íŠ¸
 
 	public Hospital01(int unique_num, int vaccin1, int vaccin2, String name) {
 		super();
@@ -54,45 +54,45 @@ public class Hospital01 {
 		this.vaccin2 = vaccin2;
 	}
 
-	// È®Áø ¿©ºÎ ¸Ş¼Òµå(°Ë»ç)
+	// í™•ì§„ ì—¬ë¶€ ë©”ì†Œë“œ(ê²€ì‚¬)
 
-	// Ä¡·á ¸Ş¼Òµå(Ä¡·á)
+	// ì¹˜ë£Œ ë©”ì†Œë“œ(ì¹˜ë£Œ)
 	public void hospitalCure(Hospital01 hospital, int vaccinSelect) {
 		if (vaccinSelect == 1) {
 			hospital.setVaccin1(hospital.getVaccin1() - 1);
 		} else if (vaccinSelect == 2) {
 			hospital.setVaccin2(hospital.getVaccin2() - 1);
 		} else {
-			System.out.println("Àß¸ø ¼±ÅÃÇÏ¼Ì½À´Ï´Ù.");
+			System.out.println("ì˜ëª» ì„ íƒí•˜ì…¨ìŠµë‹ˆë‹¤.");
 		}
 	}
 
-	// ¹é½Å Á¶È¸ ¸Ş¼Òµå
-	public void vaccinsearch() {// ¹é½Å Á¶È¸
-		System.out.println("º´¿øÀÇ ÇöÀç ¹é½Å °¹¼ö");
-		System.out.println("È­ÀÌÀÚ : " + getVaccin1());
-		System.out.println("¸ğ´õ³ª : " + getVaccin2());
+	// ë°±ì‹  ì¡°íšŒ ë©”ì†Œë“œ
+	public void vaccinsearch() {// ë°±ì‹  ì¡°íšŒ
+		System.out.println("ë³‘ì›ì˜ í˜„ì¬ ë°±ì‹  ê°¯ìˆ˜");
+		System.out.println("í™”ì´ì : " + getVaccin1());
+		System.out.println("ëª¨ë”ë‚˜ : " + getVaccin2());
 
 		HospitalStart hs = new HospitalStart();
 		System.out.println("chooseHospital : " + hs.chooseHospital);
 		hs.hospitalstart(hs.chooseHospital);
 	}
 
-	// ¹é½Å ¿äÃ» ¸Ş¼Òµå
-	// ¹é½Å ¿äÃ» ¸Ş¼Òµå
+	// ë°±ì‹  ìš”ì²­ ë©”ì†Œë“œ
+	// ë°±ì‹  ìš”ì²­ ë©”ì†Œë“œ
 	public void vaccinrequest(Hospital01 hospital, int inputV1, int inputV2) {
 		Supplyer supplyer = new Supplyer();
 		if ((inputV1 <= supplyer.sv1) && (inputV2 <= supplyer.sv2)) {
 			supplyer.supply(hospital, inputV1, inputV2);
-			System.out.println("È­ÀÌÀÚ " + inputV1 + "°³¿Í " + "¸ğ´õ³ª " + inputV2 + "°³°¡ ÁÖ¹®µÇ¾ú½À´Ï´Ù.");
-			System.out.println("ÇöÀç  È­ÀÌÀÚ " + vaccin1 + "°³¿Í " + "¸ğ´õ³ª " + vaccin2 + "°³¸¦ °¡Áö°í ÀÖ½À´Ï´Ù.");
+			System.out.println("í™”ì´ì " + inputV1 + "ê°œì™€ " + "ëª¨ë”ë‚˜ " + inputV2 + "ê°œê°€ ì£¼ë¬¸ë˜ì—ˆìŠµë‹ˆë‹¤.");
+			System.out.println("í˜„ì¬  í™”ì´ì " + vaccin1 + "ê°œì™€ " + "ëª¨ë”ë‚˜ " + vaccin2 + "ê°œë¥¼ ê°€ì§€ê³  ìˆìŠµë‹ˆë‹¤.");
 		} else if ((inputV1 > supplyer.sv1) && (inputV2 > supplyer.sv2)) {
-			System.out.println("È­ÀÌÀÚ ¹× ¸ğ´õ³ªÀÇ ¹°·®ÀÌ ºÎÁ·ÇÕ´Ï´Ù.");
-			System.out.println("ÇöÀç ÁÖ¹® °¡´ÉÇÑ È­ÀÌÀÚ °³¼ö : " + supplyer.sv1 + " / ¸ğ´õ³ª °³¼ö : " + supplyer.sv2);
+			System.out.println("í™”ì´ì ë° ëª¨ë”ë‚˜ì˜ ë¬¼ëŸ‰ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.");
+			System.out.println("í˜„ì¬ ì£¼ë¬¸ ê°€ëŠ¥í•œ í™”ì´ì ê°œìˆ˜ : " + supplyer.sv1 + " / ëª¨ë”ë‚˜ ê°œìˆ˜ : " + supplyer.sv2);
 		} else if (inputV1 > supplyer.sv1) {
-			System.out.println("È­ÀÌÀÚÀÇ ¹°·®ÀÌ ºÎÁ·ÇÕ´Ï´Ù. ÇöÀç ÁÖ¹® °¡´ÉÇÑ È­ÀÌÀÚ °³¼ö : " + supplyer.sv1);
+			System.out.println("í™”ì´ìì˜ ë¬¼ëŸ‰ì´ ë¶€ì¡±í•©ë‹ˆë‹¤. í˜„ì¬ ì£¼ë¬¸ ê°€ëŠ¥í•œ í™”ì´ì ê°œìˆ˜ : " + supplyer.sv1);
 		} else if (inputV2 > supplyer.sv2) {
-			System.out.println("¸ğ´õ³ªÀÇ ¹°·®ÀÌ ºÎÁ·ÇÕ´Ï´Ù. ÇöÀç ÁÖ¹® °¡´ÉÇÑ ¸ğ´õ³ª °³¼ö : " + supplyer.sv2);
+			System.out.println("ëª¨ë”ë‚˜ì˜ ë¬¼ëŸ‰ì´ ë¶€ì¡±í•©ë‹ˆë‹¤. í˜„ì¬ ì£¼ë¬¸ ê°€ëŠ¥í•œ ëª¨ë”ë‚˜ ê°œìˆ˜ : " + supplyer.sv2);
 		}
 
 		HospitalStart hs = new HospitalStart();
@@ -106,16 +106,5 @@ public class Hospital01 {
 		this.vaccin2 += inputV2;
 	}
 
-	class Supplyer {
-
-		int sv1 = 100; // °ø±ŞÀÚ°¡ °¡Áø È­ÀÌÀÚ
-		int sv2 = 100; // °ø±ŞÀÚ°¡ °¡Áø ¸ğ´õ³ª
-
-		public void supply(Hospital01 hospital, int inputV1, int inputV2) {
-			sv1 -= inputV1;
-			sv2 -= inputV2;
-
-			hospital.add(inputV1, inputV2);
-		}
-	}
+	
 }
