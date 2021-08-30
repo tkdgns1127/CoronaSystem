@@ -18,46 +18,49 @@ public class Join {
 
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("º´¿ø °íÀ¯ º¯È£ :");
+		System.out.println("ë³‘ì› ê³ ìœ  ë²ˆí˜¸ :");
 		try {
 			unique_num = sc.nextInt();
 			String inputNumber = Integer.toString(unique_num);
 
 			String pattern2 = "^[0-9]*$";
 
-			// °ªÀÌ ÀÔ·ÂµÇÁö ¾Ê¾ÒÀ»¶§?
+			// ê°’ì´ ì…ë ¥ë˜ì§€ ì•Šì•˜ì„ë•Œ?
 
-			if (inputNumber.equals("")) {
+			if(inputNumber.equals("0")) {
+				HospitalStart hospitalstart = new HospitalStart();
+				hospitalstart.start();
+			}else if (inputNumber.equals("")) {
 
-				System.out.println("¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù. ´Ù½Ã È®ÀÎÇØÁÖ¼¼¿ä.");
+				System.out.println("ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤. ë‹¤ì‹œ í™•ì¸í•´ì£¼ì„¸ìš”.");
 
 
-				// inputPhoneNumber ÀÔ·Â°ªÀÇ ±æÀÌ°¡ 4°¡ ¾Æ´Ï°Å°Å³ª, ¼ıÀÚ°¡ ¾Æ´Ò¶§
+				// inputPhoneNumber ì…ë ¥ê°’ì˜ ê¸¸ì´ê°€ 4ê°€ ì•„ë‹ˆê±°ê±°ë‚˜, ìˆ«ìê°€ ì•„ë‹ë•Œ
 			} else if (inputNumber.length() != 4 || !Pattern.matches(pattern2, inputNumber)) {
-				System.out.println("¿Ã¹Ù¸¥ ¹øÈ£ Çü½ÄÀÌ ¾Æ´Õ´Ï´Ù. ´Ù½Ã È®ÀÎÇØÁÖ¼¼¿ä.");
-
+				System.out.println("ì˜¬ë°”ë¥¸ ë²ˆí˜¸ í˜•ì‹ì´ ì•„ë‹™ë‹ˆë‹¤. (ì¢…ë£Œ:0)");
+				System.out.println();
+				join(hospital);
 			}else {
 			
 			sc.nextLine();
 
-			System.out.print("ÀÌ¸§ : ");
+			System.out.print("ì´ë¦„ : ");
 			name = sc.nextLine();
 
-			System.out.print("¾ÆÀÌµğ : ");
+			System.out.print("ì•„ì´ë”” : ");
 			id = sc.nextLine();
 
-			System.out.print("ºñ¹Ğ¹øÈ£ : ");
+			System.out.print("ë¹„ë°€ë²ˆí˜¸ : ");
 			pw = sc.nextLine();
 
 			if (unique_num != hospital_num) {
-				//System.out.println("º´¿ø °íÀ¯¹øÈ£ È®ÀÎ : " + hospital_num);// º´¿ø°íÀ¯¹øÈ£È®ÀÎ
-				System.out.println(" º´¿ø °íÀ¯ ¹øÈ£°¡ ´Ù¸¨´Ï´Ù.");
-				System.out.println(" È¸¿ø°¡ÀÔÀ» ´Ù½Ã ÇØÁÖ¼¼¿ä.");
+				//System.out.println("ë³‘ì› ê³ ìœ ë²ˆí˜¸ í™•ì¸ : " + hospital_num);// ë³‘ì›ê³ ìœ ë²ˆí˜¸í™•ì¸
+				System.out.println(" ë³‘ì› ê³ ìœ  ë²ˆí˜¸ê°€ ë‹¤ë¦…ë‹ˆë‹¤. (ì¢…ë£Œ:0)");
 				join(hospital);
 			} else {
 
 				hospital.member.add(new Membership(unique_num, name, id, pw));
-				System.out.println(name + "´Ô È¸¿ø°¡ÀÔÀ» ¼º°øÇÏ¿´½À´Ï´Ù.");
+				System.out.println(name + "ë‹˜ íšŒì›ê°€ì…ì„ ì„±ê³µí•˜ì˜€ìŠµë‹ˆë‹¤.");
 			}
 
 			Login login = new Login();
@@ -65,7 +68,7 @@ public class Join {
 
 			}
 		} catch (InputMismatchException e) {
-			System.out.println("¼ıÀÚ¸¸ ÀÔ·ÂÇÏ¼¼¿ä.");
+			System.out.println("ìˆ«ìë§Œ ì…ë ¥í•˜ì„¸ìš”.");
 			sc = new Scanner(System.in);
 			join(hospital);
 		}
