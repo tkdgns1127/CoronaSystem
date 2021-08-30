@@ -1,67 +1,50 @@
 
 import java.util.*;
 
-public class ReserveMain { // ¸ŞÀÎÅ¬·¡½º ¿©±â¼­ ½ÇÇà
+public class ReserveMain { // ë©”ì¸í´ë˜ìŠ¤ ì—¬ê¸°ì„œ ì‹¤í–‰
 
-	String reserveName = null; // ¿¹¾àÀÚ ¼º¸í
+	String reserveName = null; // ì˜ˆì•½ì ì„±ëª…
 	String gender = null;
-	int phoneNum = 0; // ÀüÈ­¹øÈ£
-	int age = 0; // ³ªÀÌ
-	int dayNum = 0; // ¿¹¾à ³¯Â¥
-	// boolean input = true; //ÀÔ·ÂÇÑ °Ô trueÀÌ´Ù.
+	int phoneNum = 0; // ì „í™”ë²ˆí˜¸
+	int age = 0; // ë‚˜ì´
+	int dayNum = 0; // ì˜ˆì•½ ë‚ ì§œ
+	// boolean input = true; //ì…ë ¥í•œ ê²Œ trueì´ë‹¤.
 
 	public void reserveStart() {
 		reserveseat seat = new reserveseat(reserveName, phoneNum);
 		ReservationCancle rc = new ReservationCancle();
 		Reserve reserve = new Reserve();
 
-		Scanner scanner = new Scanner(System.in); // ÀÔ·ÂÇÒ¼ö ÀÖ´Â ½ºÄ³³Ê
+		Scanner scanner = new Scanner(System.in); // ì…ë ¥í• ìˆ˜ ìˆëŠ” ìŠ¤ìºë„ˆ
 
-		// - ¿¹¾à ½Ã½ºÅÛÀÇ ¸Ş´º´Â "¿¹¾à", "Á¶È¸", "Ãë¼Ò", "³¡³»±â"°¡ ÀÖ´Ù.
-		// - ¾ø´Â ÀÌ¸§, ¾ø´Â ¹øÈ£, ¾ø´Â ¸Ş´º, Àß¸øµÈ Ãë¼Ò µî¿¡ ´ëÇØ¼­ ¿À·ù ¸Ş½ÃÁö¸¦ Ãâ·ÂÇÏ°í »ç¿ëÀÚ°¡ ´Ù½Ã½ÃµµÇÏµµ·Ï ÇÑ´Ù.
+		// - ì˜ˆì•½ ì‹œìŠ¤í…œì˜ ë©”ë‰´ëŠ” "ì˜ˆì•½", "ì¡°íšŒ", "ì·¨ì†Œ", "ëë‚´ê¸°"ê°€ ìˆë‹¤.
+		// - ì—†ëŠ” ì´ë¦„, ì—†ëŠ” ë²ˆí˜¸, ì—†ëŠ” ë©”ë‰´, ì˜ëª»ëœ ì·¨ì†Œ ë“±ì— ëŒ€í•´ì„œ ì˜¤ë¥˜ ë©”ì‹œì§€ë¥¼ ì¶œë ¥í•˜ê³  ì‚¬ìš©ìê°€ ë‹¤ì‹œì‹œë„í•˜ë„ë¡ í•œë‹¤.
 		System.out.println("==============================");
-		System.out.println("1.¿¹¾àÇÏ±â 2.¿¹¾àÁ¶È¸ 3.¿¹¾àÃë¼Ò 4.µÚ·Î°¡±â");
+		System.out.println("1.ì˜ˆì•½í•˜ê¸° 2.ì˜ˆì•½ì·¨ì†Œ 3.í™˜ìë©”ë‰´");
 
-		
 		try {
-		int reservefor = scanner.nextInt(); // À§ÀÇ ¸Ş´ºÁß 4°³¸¸ ÀÔ·Â ±×¿Ü´Â Àß¸øÀÔ·ÂÃâ·Â
-		switch (reservefor) {
-		case 1:
-			// seat.Seat(); //¿¹¾à ¸Ş¼Òµå
-			reserve.Seat();
-			break;
-		case 2:
+			int reservefor = scanner.nextInt(); // ìœ„ì˜ ë©”ë‰´ì¤‘ 4ê°œë§Œ ì…ë ¥ ê·¸ì™¸ëŠ” ì˜ëª»ì…ë ¥ì¶œë ¥
+			switch (reservefor) {
+			case 1:
+				// seat.Seat(); //ì˜ˆì•½ ë©”ì†Œë“œ
+				reserve.Seat();
+				break;
 
-			reserve.searchSeat();
+			case 2:
+				rc.res_cancle(); // ì·¨ì†Œ ë©”ì†Œë“œ
+				break;
+			case 3: // ë’¤ë¡œê°€ê¸°
 
-			/*
-			 * System.out.println("¿¹¾àÇÑ º´¿øÀ» ¼±ÅÃÇÏ¼¼¿ä!!");
-			 * System.out.println("1.¼­¿ï´ëº´¿ø 2.¾Æ»êº´¿ø 3.ÀÌÈ­¿©´ëº´¿ø"); int num = scanner.nextInt();
-			 * 
-			 * if(num == 1) { reserve.searchSeat(Corona19.h1); //Á¶È¸ ¸Ş¼Òµå
-			 * 
-			 * }else if(num ==2) { reserve.searchSeat(Corona19.h2); //Á¶È¸ ¸Ş¼Òµå
-			 * 
-			 * }else {
-			 * 
-			 * reserve.searchSeat(Corona19.h3); //Á¶È¸ ¸Ş¼Òµå }
-			 */
-			break;
-		case 3:
-			rc.res_cancle(); // Ãë¼Ò ¸Ş¼Òµå
-			break;
-		case 4: // µÚ·Î°¡±â
-
-			Patient.patientStart();
-			// input = false;
-			return;
-		default:
-			System.out.println("Àß¸ø ´©¸£¼Ì½À´Ï´Ù. Á¤È®ÇÑ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
-			ReserveMain rm = new ReserveMain();
-			rm.reserveStart();
-		}
-		}catch(Exception e) {
-			System.out.println("Àß¸ø ´©¸£¼Ì½À´Ï´Ù. Á¤È®ÇÑ ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+				Patient.patientStart();
+				// input = false;
+				return;
+			default:
+				System.out.println("ì˜ëª» ëˆ„ë¥´ì…¨ìŠµë‹ˆë‹¤. ì •í™•í•œ ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+				ReserveMain rm = new ReserveMain();
+				rm.reserveStart();
+			}
+		} catch (Exception e) {
+			System.out.println("ì˜ëª» ëˆ„ë¥´ì…¨ìŠµë‹ˆë‹¤. ì •í™•í•œ ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 			ReserveMain rm = new ReserveMain();
 			rm.reserveStart();
 		}
