@@ -65,6 +65,7 @@ public class Corona19 {
 		Test.infectionList.add(new Person("지한얼", 19, "010-7919-7477", true));
 		Test.infectionList.add(new Person("화이자", 61, "010-1127-7478", true));
 
+		Cure.treatmentCompletedList.add(new Person("도현도", 25, "010-8000-1234", true));
 		Corona19 corona = new Corona19();// 환자 클래스, 병원 클래스, 조회 클래스 객체 생성
 		corona.coronaSystem();
 

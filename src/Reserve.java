@@ -165,6 +165,9 @@ class Reserve {
 
 			} else {
 				System.out.println("전화번호 형식이 맞지 않습니다.");
+				ReserveMain reserve = new ReserveMain();
+				reserve.reserveStart();
+
 			}
 
 		} catch (InputMismatchException e) {
@@ -193,70 +196,71 @@ class Reserve {
 				ReserveMain reserve = new ReserveMain();
 				reserve.reserveStart();
 
-
 				// inputPhoneNumber 입력값의 길이가 4가 아니거거나, 숫자가 아닐때
 			} else if (find.length() != 4 || !Pattern.matches(pattern2, find)) {
 				System.out.println("올바른 번호 형식이 아닙니다. 다시 확인해주세요.");
 				ReserveMain reserve = new ReserveMain();
 				reserve.reserveStart();
 
+			} else {
 
-			}else {
+				System.out.println();
 
-			System.out.println();
+				boolean tf = true;
 
-			boolean tf = true;
+				for (int i = 0; i < Corona19.h1.rl.size(); i++) {
 
-			for (int i = 0; i < Corona19.h1.rl.size(); i++) {
+					if (Corona19.h1.rl.get(i).getPhoneNum().substring(9).equals(find)) {
+						tf = false;
+						System.out.println("------------------------------------------------------------------------");
+						System.out.println("예약자: " + Corona19.h1.rl.get(i).getName() + "님 " + "\t예약병원: "
+								+ Corona19.h1.name + "\t\t예약일: " + Corona19.h1.rl.get(i).getDayNum() + "\t전화번호: "
+								+ Corona19.h1.rl.get(i).getPhoneNum());
+						System.out.println("------------------------------------------------------------------------");
 
-				if (Corona19.h1.rl.get(i).getPhoneNum().substring(9).equals(find)) {
-					tf = false;
-					System.out.println("------------------------------------------------------------------------");
-					System.out.println("예약자: " + Corona19.h1.rl.get(i).getName() + "님 " + "\t예약병원: " + Corona19.h1.name
-							+ "\t\t예약일: " + Corona19.h1.rl.get(i).getDayNum() + "\t전화번호: "
-							+ Corona19.h1.rl.get(i).getPhoneNum());
-					System.out.println("------------------------------------------------------------------------");
-
+					}
 				}
-			}
 
-			for (int i = 0; i < Corona19.h2.rl.size(); i++) {
+				for (int i = 0; i < Corona19.h2.rl.size(); i++) {
 
-				if (Corona19.h2.rl.get(i).getPhoneNum().substring(9).equals(find)) {
-					tf = false;
+					if (Corona19.h2.rl.get(i).getPhoneNum().substring(9).equals(find)) {
+						tf = false;
 
-					System.out.println("------------------------------------------------------------------------");
-					System.out.println("예약자: " + Corona19.h2.rl.get(i).getName() + "님 " + "\t예약병원: " + Corona19.h2.name
-							+ "\t\t예약일: " + Corona19.h2.rl.get(i).getDayNum() + "\t전화번호: "
-							+ Corona19.h2.rl.get(i).getPhoneNum());
-					System.out.println("------------------------------------------------------------------------");
+						System.out.println("------------------------------------------------------------------------");
+						System.out.println("예약자: " + Corona19.h2.rl.get(i).getName() + "님 " + "\t예약병원: "
+								+ Corona19.h2.name + "\t\t예약일: " + Corona19.h2.rl.get(i).getDayNum() + "\t전화번호: "
+								+ Corona19.h2.rl.get(i).getPhoneNum());
+						System.out.println("------------------------------------------------------------------------");
 
+					}
 				}
-			}
 
-			for (int i = 0; i < Corona19.h3.rl.size(); i++) {
+				for (int i = 0; i < Corona19.h3.rl.size(); i++) {
 
-				if (Corona19.h3.rl.get(i).getPhoneNum().substring(9).equals(find)) {
-					tf = false;
+					if (Corona19.h3.rl.get(i).getPhoneNum().substring(9).equals(find)) {
+						tf = false;
 
-					System.out.println("------------------------------------------------------------------------");
-					System.out.println("예약자: " + Corona19.h3.rl.get(i).getName() + "님 " + "\t예약병원: " + Corona19.h3.name
-							+ "\t\t예약일: " + Corona19.h3.rl.get(i).getDayNum() + "\t전화번호: "
-							+ Corona19.h1.rl.get(i).getPhoneNum());
-					System.out.println("------------------------------------------------------------------------");
-
+						System.out.println("------------------------------------------------------------------------");
+						System.out.println("예약자: " + Corona19.h3.rl.get(i).getName() + "님 " + "\t예약병원: "
+								+ Corona19.h3.name + "\t\t예약일: " + Corona19.h3.rl.get(i).getDayNum() + "\t전화번호: "
+								+ Corona19.h1.rl.get(i).getPhoneNum());
+						System.out.println("------------------------------------------------------------------------");
+						
+					}
 				}
-			}
-			
-			if (tf) {
-				System.out.println("예약리스트에 없습니다.");
-				System.out.println("예약을 진행해주세요!");
-				ReserveMain reserve = new ReserveMain();
-				reserve.reserveStart();
+
+				if (tf) {
+					System.out.println("예약리스트에 없습니다.");
+					System.out.println("예약을 진행해주세요!");
+					ReserveMain reserve = new ReserveMain();
+					reserve.reserveStart();
+
+				}else {
+					ReserveMain reserve = new ReserveMain();
+					reserve.reserveStart();
+				}
 
 			}
-
-		}
 		} catch (InputMismatchException e) {
 			scanner = new Scanner(System.in);
 			System.out.println("숫자를 입력해주세요!");

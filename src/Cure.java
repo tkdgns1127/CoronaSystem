@@ -6,22 +6,27 @@ public class Cure {
 	public static ArrayList<Person> treatmentCompletedList = new ArrayList<>(); // 완치자 리스트
 	public static ArrayList<Person> antibodyList = new ArrayList<>(); // 항생?
 	public static ArrayList<Person> deathList = new ArrayList<>(); // 사망자 리스트
-	ArrayList<Reservelist> reserveList;
-
+	
 	public void res_check(Hospital01 hospital01, String name, String phoneNum4) {
+		Cure cure = new Cure();
 		Scanner scanner = new Scanner(System.in);
-		reserveList = hospital01.rl;
+		//ArrayList<Person> reservelist = new ArrayList<>();
+		boolean tf = true;
 
-		if (reserveList.size() == 0) {
+		if (hospital01.rl.size() == 0) {
 			System.out.println("예약자명단에 존재하지 않습니다.");
+			System.out.println("예약리스트 0명");
 			Patient.patientStart();
 
 		}
 
-		for (Person person : reserveList) {
+		for (Reservelist reservelist : hospital01.rl) {
 
-			if (person.getName().equals(name) && person.getPhoneNum().substring(9).equals(phoneNum4)) {
+			//System.out.println( reservelist.getName()+ " " +  reservelist.getPhoneNum().substring(9));
+			
+			if ( reservelist.getName().equals(name) &&  reservelist.getPhoneNum().substring(9).equals(phoneNum4)) {
 				// 치료시작함.
+				tf = false;
 
 				int h1vaccin1 = Corona19.h1.getVaccin1();
 				int h1vaccin2 = Corona19.h1.getVaccin2();
@@ -71,37 +76,43 @@ public class Cure {
 						System.out.println("조금더 지켜봐야 할 것 같습니다.");
 					} else if (randomNum <= 90) {
 						// 확진자의 경우
-						if (person.confirmed = true) {
+						if ( reservelist.confirmed == true) {
 							System.out.println("완치되었습니다.");
-							person.cure = true;
+							 reservelist.cure = true;
 							// 완치자리스트에 추가?
-							treatmentCompletedList.add(person);
+							treatmentCompletedList.add( reservelist);
+							hospital01.rl.remove( reservelist);
 						} else {
 							// 비확진자의경우
 							System.out.println("항체가 생성되었습니다.");
 							// 항체생성 리스트에 추가?
-							antibodyList.add(person);
+							hospital01.rl.remove( reservelist);
+							antibodyList.add( reservelist);
 						}
 					} else {
 						System.out.println("고인의 명복을 빕니다.");
 						// 사망자리스트에 추가?
-						deathList.add(person);
+						hospital01.rl.remove( reservelist);
+						deathList.add( reservelist);
 					}
 				}
 				Patient.patientStart();
 
 			}
-			// 예약리스트에 없을경우
-			else {
-				System.out.println("예약자명단에 존재하지 않습니다.");
-				Patient.patientStart();
-			}
+			
+	
 
+		}
+		// 예약리스트에 없을경우
+		if(tf) {
+			System.out.println("예약자명단에 존재하지 않습니다.");
+			Patient.patientStart();
 		}
 
 	}
 
-	public void cureMethod(Scanner scanner) {
+	public void cureMethod() {
+		Scanner scanner = new Scanner(System.in);
 		Cure cure = new Cure();
 
 		System.out.println("예약한 병원을 입력해주세요.");
@@ -126,7 +137,7 @@ public class Cure {
 				// inputPhoneNumber 입력값의 길이가 4가 아니거거나, 숫자가 아닐때
 			} else if (phoneNum4.length() != 4 || !Pattern.matches(pattern2, phoneNum4)) {
 				System.out.println("올바른 번호 형식이 아닙니다. 다시 확인해주세요.");
-				cure.cureMethod(scanner);
+				cure.cureMethod();
 
 			} else {
 
@@ -140,7 +151,7 @@ public class Cure {
 			}
 		} else {
 			System.out.println("병원을 잘못 기입하였습니다.");
-			cure.cureMethod(scanner);
+			cure.cureMethod();
 		}
 
 		// [이름과 뒷번호가 해당 병원(서울대병원) 예약리스트에 있음]

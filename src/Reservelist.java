@@ -1,5 +1,5 @@
 
-public class Reservelist extends Person { // 예약자리스트
+public class Reservelist extends Person{ // 예약자리스트
 
 	/*
 	 * ArrayList<String> reserveName = new ArrayList<String>(); //이름리스트
@@ -14,6 +14,7 @@ public class Reservelist extends Person { // 예약자리스트
 	private int age; // 나이
 	private String dayNum; // 예약날짜
 	private String seattype; // 자리타입
+	
 
 	public Reservelist(String name, String gender, String phoneNum, int age, String dayNum, String seattype) { // 생성자
 		super();

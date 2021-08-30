@@ -24,7 +24,7 @@ public class Patient {
 	}
 
 	public void startCure() {
-		cure.cureMethod(sc);
+		cure.cureMethod();
 	}
 
 	public static void patientStart() {
@@ -46,7 +46,9 @@ public class Patient {
 			} else if (num == 3) {
 				patient.startReserve();
 			} else if (num == 4) {
-				patient.startCure();
+				Cure cure = new Cure();
+				cure.cureMethod();
+				//patient.startCure();
 			} else if (num == 5) {
 				corona.coronaSystem();
 			} else {
