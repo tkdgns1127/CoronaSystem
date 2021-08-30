@@ -24,18 +24,18 @@ public class Patient {
 	}
 
 	public void startCure() {
-		cure.cureMethod(sc);
+		cure.cureMethod();
 	}
 
 	public static void patientStart() {
-		Patient patient = new Patient(); // »ó´ã, °Ë»ç, ¿¹¾à, Ä¡·á °´Ã¼ »ı¼º
+		Patient patient = new Patient(); // ìƒë‹´, ê²€ì‚¬, ì˜ˆì•½, ì¹˜ë£Œ ê°ì²´ ìƒì„±
 		Corona19 corona = new Corona19();
 		Scanner sc = new Scanner(System.in);
 
-		System.out.println("===============================");
-		System.out.println("¸Ş´º¸¦ ¼±ÅÃÇÏ¼¼¿ä!");
-		System.out.println("1.»ó´ã 2.°Ë»ç 3.¿¹¾à 4.Ä¡·á 5.µÚ·Î°¡±â");
-		System.out.println("===============================");
+		System.out.println("===========================================================");
+		System.out.println("ë©”ë‰´ë¥¼ ì„ íƒí•˜ì„¸ìš”!");
+		System.out.println("1.ìƒë‹´ 2.ê²€ì‚¬ 3.ë°±ì‹ ì˜ˆì•½ 4.ë°±ì‹ ì ‘ì¢… 5.ì „ì²´ìƒí™©íŒ 6.ë‚˜ì´ë³„í™•ì§„ì 7.ë©”ì¸ë©”ë‰´");
+		System.out.println("===========================================================");
 		try {
 
 			int num = sc.nextInt();
@@ -46,16 +46,24 @@ public class Patient {
 			} else if (num == 3) {
 				patient.startReserve();
 			} else if (num == 4) {
-				patient.startCure();
+				Cure cure = new Cure();
+				cure.cureMethod();
+				//patient.startCure();
 			} else if (num == 5) {
+				DashBoard board = new DashBoard();
+				
+			} else if(num == 6) {
+				ConfirmedByAge cfmb = new ConfirmedByAge();
+				cfmb.confirmedByAge();
+			}else if(num == 7){
 				corona.coronaSystem();
-			} else {
-				System.out.println("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.");
+			}else {
+				System.out.println("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”.");
 				patientStart();
 			}
 
 		} catch (InputMismatchException e) {
-			System.out.println("¼ıÀÚ¸¸ ÀÔ·ÂÇÏ¼¼¿ä.");
+			System.out.println("ìˆ«ìë§Œ ì…ë ¥í•˜ì„¸ìš”.");
 			sc = new Scanner(System.in);
 			patientStart();
 		}
