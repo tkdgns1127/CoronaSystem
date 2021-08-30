@@ -14,9 +14,11 @@ public class Login {
 		HospitalStart hospitalstart = new HospitalStart();
 
 		int num;
-		System.out.println("================================");
-		System.out.println("1.·Î±×ÀÎ   2.È¸¿ø°¡ÀÔ  3.º´¿ø¼±ÅÃÀ¸·Î µ¹¾Æ°¡±â");
-		System.out.print("¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä : ");
+		System.out.println("");
+
+		System.out.println("===========================================");
+		System.out.println("1.ë¡œê·¸ì¸   2.íšŒì›ê°€ì…  3.ë³‘ì›ì„ íƒìœ¼ë¡œ ëŒì•„ê°€ê¸°");
+		System.out.print("ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš” : ");
 
 		try {
 			num = sc.nextInt();
@@ -28,12 +30,12 @@ public class Login {
 			} else if (num == 3) {
 				hospitalstart.start();
 			} else {
-				System.out.println("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.");
+				System.out.println("ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”.");
 				hospitalstart.start();
 
 			}
 		} catch (InputMismatchException e) {
-			System.out.println("Àß¸ø ÀÔ·ÂÇÏ¼Ì½À´Ï´Ù. ¼ıÀÚ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+			System.out.println("ì˜ëª» ì…ë ¥í•˜ì…¨ìŠµë‹ˆë‹¤. ìˆ«ìë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 			System.out.println();
 			sc = new Scanner(System.in);
 			loginstart(hospital);
@@ -45,35 +47,34 @@ public class Login {
 
 		Scanner sc = new Scanner(System.in);
 
-		// ÀÇ¿øÈ¸¿ø È®ÀÎ¿ë Ãâ·Â¹®
-		System.out.println("ÀÇ»çÈ¸¿ø¸®½ºÆ®Ãâ·Â");
-		for (Membership m : hospital.member) {
-			System.out.println(m.getName());
-		}
+		// ì˜ì›íšŒì› í™•ì¸ìš© ì¶œë ¥ë¬¸
+	
 
-		System.out.print("¾ÆÀÌµğ : ");
+		System.out.print("ì•„ì´ë”” : ");
 		id = sc.nextLine();
 
-		System.out.print("ºñ¹Ğ¹øÈ£ : ");
+		System.out.print("ë¹„ë°€ë²ˆí˜¸ : ");
 		pw = sc.nextLine();
 
 		for (int i = 0; i < hospital.member.size(); i++) {
 			if (id.equals(hospital.member.get(i).getId())) {
 				if (pw.equals(hospital.member.get(i).getPw())) {
 					login = false;
-					System.out.println(hospital.member.get(i).getName() + "´Ô È¯¿µÇÕ´Ï´Ù.");
+					System.out.println("");
 
-					// ·Î±×ÀÎ ¼º°øÇØ¼­ º´¿ø ¸Ş´º·Î µé¾î°¡±â
+					System.out.println(hospital.member.get(i).getName() + "ë‹˜ í™˜ì˜í•©ë‹ˆë‹¤.");
+
+					// ë¡œê·¸ì¸ ì„±ê³µí•´ì„œ ë³‘ì› ë©”ë‰´ë¡œ ë“¤ì–´ê°€ê¸°
 					HospitalStart hs = new HospitalStart();
 					int num = Arrays.asList(hs.hospitalarraylist).indexOf(hospital);
 					hs.hospitalstart(num);
 				}
-				// System.out.println("ºñ¹Ğ¹øÈ£°¡ ´Ù¸¨´Ï´Ù.");
+				// System.out.println("ë¹„ë°€ë²ˆí˜¸ê°€ ë‹¤ë¦…ë‹ˆë‹¤.");
 			}
 		}
 
 		if (login) {
-			System.out.println("·Î±×ÀÎ¿¡ ½ÇÆĞÇÏ¼Ì½À´Ï´Ù.");
+			System.out.println("ë¡œê·¸ì¸ì— ì‹¤íŒ¨í•˜ì…¨ìŠµë‹ˆë‹¤.");
 			loginstart(hospital);
 		}
 
