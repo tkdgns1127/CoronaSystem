@@ -3,25 +3,30 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Cure {
-	public static ArrayList<Person> treatmentCompletedList = new ArrayList<>(); // ¿ÏÄ¡ÀÚ ¸®½ºÆ®
-	public static ArrayList<Person> antibodyList = new ArrayList<>(); // Ç×»ı?
-	public static ArrayList<Person> deathList = new ArrayList<>(); // »ç¸ÁÀÚ ¸®½ºÆ®
-	ArrayList<Reservelist> reserveList;
-
+	public static ArrayList<Person> treatmentCompletedList = new ArrayList<>(); // ì™„ì¹˜ì ë¦¬ìŠ¤íŠ¸
+	public static ArrayList<Person> antibodyList = new ArrayList<>(); // í•­ìƒ?
+	public static ArrayList<Person> deathList = new ArrayList<>(); // ì‚¬ë§ì ë¦¬ìŠ¤íŠ¸
+	
 	public void res_check(Hospital01 hospital01, String name, String phoneNum4) {
+		Cure cure = new Cure();
 		Scanner scanner = new Scanner(System.in);
-		reserveList = hospital01.rl;
+		//ArrayList<Person> reservelist = new ArrayList<>();
+		boolean tf = true;
 
-		if (reserveList.size() == 0) {
-			System.out.println("¿¹¾àÀÚ¸í´Ü¿¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+		if (hospital01.rl.size() == 0) {
+			System.out.println("ì˜ˆì•½ìëª…ë‹¨ì— ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+			System.out.println("ì˜ˆì•½ë¦¬ìŠ¤íŠ¸ 0ëª…");
 			Patient.patientStart();
 
 		}
 
-		for (Person person : reserveList) {
+		for (Reservelist reservelist : hospital01.rl) {
 
-			if (person.getName().equals(name) && person.getPhoneNum().substring(9).equals(phoneNum4)) {
-				// Ä¡·á½ÃÀÛÇÔ.
+			//System.out.println( reservelist.getName()+ " " +  reservelist.getPhoneNum().substring(9));
+			
+			if ( reservelist.getName().equals(name) &&  reservelist.getPhoneNum().substring(9).equals(phoneNum4)) {
+				// ì¹˜ë£Œì‹œì‘í•¨.
+				tf = false;
 
 				int h1vaccin1 = Corona19.h1.getVaccin1();
 				int h1vaccin2 = Corona19.h1.getVaccin2();
@@ -33,30 +38,30 @@ public class Cure {
 				int h3vaccin2 = Corona19.h3.getVaccin2();
 				int h3vaccinselect = 0;
 
-				// ÇØ´çº´¿øÀÇ ¹é½Å °³¼ö¸¦ ºÒ·¯¿Í¾ßÇÔ(1. ¸ğ´õ³ª[1°³], 2. È­ÀÌÀÚ[2°³])
-				if (hospital01.name.equals("¼­¿ï´ëº´¿ø")) {
-					System.out.println("Ä¡·á¸¦ ½ÃÀÛÇÏ°Ú½À´Ï´Ù.");
-					System.out.println("¹é½ÅÀ» ¼±ÅÃÇÏ¼¼¿ä.");
-					System.out.println("1. ¸ğ´õ³ª[" + h1vaccin1 + "], 2. È­ÀÌÀÚ[" + h1vaccin2 + "]");
-					System.out.println("1 ¶Ç´Â 2¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+				// í•´ë‹¹ë³‘ì›ì˜ ë°±ì‹  ê°œìˆ˜ë¥¼ ë¶ˆëŸ¬ì™€ì•¼í•¨(1. ëª¨ë”ë‚˜[1ê°œ], 2. í™”ì´ì[2ê°œ])
+				if (hospital01.name.equals("ì„œìš¸ëŒ€ë³‘ì›")) {
+					System.out.println("ì¹˜ë£Œë¥¼ ì‹œì‘í•˜ê² ìŠµë‹ˆë‹¤.");
+					System.out.println("ë°±ì‹ ì„ ì„ íƒí•˜ì„¸ìš”.");
+					System.out.println("1. ëª¨ë”ë‚˜[" + h1vaccin1 + "], 2. í™”ì´ì[" + h1vaccin2 + "]");
+					System.out.println("1 ë˜ëŠ” 2ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 					h1vaccinselect = Integer.parseInt(scanner.nextLine());
 					Corona19.h1.hospitalCure(Corona19.h1, h1vaccinselect);
-				} else if (hospital01.name.equals("¾Æ»êº´¿ø")) {
-					System.out.println("Ä¡·á¸¦ ½ÃÀÛÇÏ°Ú½À´Ï´Ù.");
-					System.out.println("¹é½ÅÀ» ¼±ÅÃÇÏ¼¼¿ä.");
-					System.out.println("1. ¸ğ´õ³ª[" + h2vaccin1 + "], 2. È­ÀÌÀÚ[" + h2vaccin2 + "]");
-					System.out.println("1 ¶Ç´Â 2¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+				} else if (hospital01.name.equals("ì•„ì‚°ë³‘ì›")) {
+					System.out.println("ì¹˜ë£Œë¥¼ ì‹œì‘í•˜ê² ìŠµë‹ˆë‹¤.");
+					System.out.println("ë°±ì‹ ì„ ì„ íƒí•˜ì„¸ìš”.");
+					System.out.println("1. ëª¨ë”ë‚˜[" + h2vaccin1 + "], 2. í™”ì´ì[" + h2vaccin2 + "]");
+					System.out.println("1 ë˜ëŠ” 2ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 					h2vaccinselect = Integer.parseInt(scanner.nextLine());
 					Corona19.h1.hospitalCure(Corona19.h2, h2vaccinselect);
-				} else if (hospital01.name.equals("ÀÌÈ­¿©´ëº´¿ø")) {
-					System.out.println("Ä¡·á¸¦ ½ÃÀÛÇÏ°Ú½À´Ï´Ù.");
-					System.out.println("¹é½ÅÀ» ¼±ÅÃÇÏ¼¼¿ä.");
-					System.out.println("1. ¸ğ´õ³ª[" + h3vaccin1 + "], 2. È­ÀÌÀÚ[" + h3vaccin2 + "]");
-					System.out.println("1 ¶Ç´Â 2¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+				} else if (hospital01.name.equals("ì´í™”ì—¬ëŒ€ë³‘ì›")) {
+					System.out.println("ì¹˜ë£Œë¥¼ ì‹œì‘í•˜ê² ìŠµë‹ˆë‹¤.");
+					System.out.println("ë°±ì‹ ì„ ì„ íƒí•˜ì„¸ìš”.");
+					System.out.println("1. ëª¨ë”ë‚˜[" + h3vaccin1 + "], 2. í™”ì´ì[" + h3vaccin2 + "]");
+					System.out.println("1 ë˜ëŠ” 2ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 					h3vaccinselect = Integer.parseInt(scanner.nextLine());
 					Corona19.h1.hospitalCure(Corona19.h3, h3vaccinselect);
 				} else {
-					System.out.println("º´¿øÀ» Àß¸ø ±âÀÔÇÏ¿´½À´Ï´Ù.");
+					System.out.println("ë³‘ì›ì„ ì˜ëª» ê¸°ì…í•˜ì˜€ìŠµë‹ˆë‹¤.");
 					Patient pp = new Patient();
 					pp.patientStart();
 					break;
@@ -64,69 +69,75 @@ public class Cure {
 
 				if (h1vaccinselect == 1 || h1vaccinselect == 2 || h2vaccinselect == 1 || h2vaccinselect == 2
 						|| h3vaccinselect == 1 || h3vaccinselect == 2) {
-					System.out.println("ÀÇ»ç°¡ Ä¡·áÁßÀÔ´Ï´Ù.");
-					// Ä¡·á°úÁ¤
+					System.out.println("ì˜ì‚¬ê°€ ì¹˜ë£Œì¤‘ì…ë‹ˆë‹¤.");
+					// ì¹˜ë£Œê³¼ì •
 					int randomNum = (int) (Math.random() * 100 + 1);
 					if (randomNum <= 10) {
-						System.out.println("Á¶±İ´õ ÁöÄÑºÁ¾ß ÇÒ °Í °°½À´Ï´Ù.");
+						System.out.println("ì¡°ê¸ˆë” ì§€ì¼œë´ì•¼ í•  ê²ƒ ê°™ìŠµë‹ˆë‹¤.");
 					} else if (randomNum <= 90) {
-						// È®ÁøÀÚÀÇ °æ¿ì
-						if (person.confirmed = true) {
-							System.out.println("¿ÏÄ¡µÇ¾ú½À´Ï´Ù.");
-							person.cure = true;
-							// ¿ÏÄ¡ÀÚ¸®½ºÆ®¿¡ Ãß°¡?
-							treatmentCompletedList.add(person);
+						// í™•ì§„ìì˜ ê²½ìš°
+						if ( reservelist.confirmed == true) {
+							System.out.println("ì™„ì¹˜ë˜ì—ˆìŠµë‹ˆë‹¤.");
+							 reservelist.cure = true;
+							// ì™„ì¹˜ìë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€?
+							treatmentCompletedList.add( reservelist);
+							hospital01.rl.remove( reservelist);
 						} else {
-							// ºñÈ®ÁøÀÚÀÇ°æ¿ì
-							System.out.println("Ç×Ã¼°¡ »ı¼ºµÇ¾ú½À´Ï´Ù.");
-							// Ç×Ã¼»ı¼º ¸®½ºÆ®¿¡ Ãß°¡?
-							antibodyList.add(person);
+							// ë¹„í™•ì§„ìì˜ê²½ìš°
+							System.out.println("í•­ì²´ê°€ ìƒì„±ë˜ì—ˆìŠµë‹ˆë‹¤.");
+							// í•­ì²´ìƒì„± ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€?
+							hospital01.rl.remove( reservelist);
+							antibodyList.add( reservelist);
 						}
 					} else {
-						System.out.println("°íÀÎÀÇ ¸íº¹À» º÷´Ï´Ù.");
-						// »ç¸ÁÀÚ¸®½ºÆ®¿¡ Ãß°¡?
-						deathList.add(person);
+						System.out.println("ê³ ì¸ì˜ ëª…ë³µì„ ë¹•ë‹ˆë‹¤.");
+						// ì‚¬ë§ìë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€?
+						hospital01.rl.remove( reservelist);
+						deathList.add( reservelist);
 					}
 				}
 				Patient.patientStart();
 
 			}
-			// ¿¹¾à¸®½ºÆ®¿¡ ¾øÀ»°æ¿ì
-			else {
-				System.out.println("¿¹¾àÀÚ¸í´Ü¿¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
-				Patient.patientStart();
-			}
+			
+	
 
+		}
+		// ì˜ˆì•½ë¦¬ìŠ¤íŠ¸ì— ì—†ì„ê²½ìš°
+		if(tf) {
+			System.out.println("ì˜ˆì•½ìëª…ë‹¨ì— ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+			Patient.patientStart();
 		}
 
 	}
 
-	public void cureMethod(Scanner scanner) {
+	public void cureMethod() {
+		Scanner scanner = new Scanner(System.in);
 		Cure cure = new Cure();
 
-		System.out.println("¿¹¾àÇÑ º´¿øÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+		System.out.println("ì˜ˆì•½í•œ ë³‘ì›ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 		String hospital = scanner.nextLine();
 		if ((hospital.equals(Corona19.h1.name)) || (hospital.equals(Corona19.h2.name))
 				|| (hospital.equals(Corona19.h3.name))) {
 
-			System.out.println("ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä.");
+			System.out.println("ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”.");
 			String name = scanner.nextLine();
-			System.out.println("ÇÚµåÆù µŞ¹øÈ£ 4ÀÚ¸®¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+			System.out.println("í•¸ë“œí° ë’·ë²ˆí˜¸ 4ìë¦¬ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 			String phoneNum4 = scanner.nextLine();
 
-			// inputPhoneNumber ¼ıÀÚ¸¸ Æ÷ÇÔµÇ¾îÀÖ´ÂÁö Ã¼Å©ÇÏ´Â Á¤±ÔÇ¥Çö½Ä
+			// inputPhoneNumber ìˆ«ìë§Œ í¬í•¨ë˜ì–´ìˆëŠ”ì§€ ì²´í¬í•˜ëŠ” ì •ê·œí‘œí˜„ì‹
 			String pattern2 = "^[0-9]*$";
 
-			// °ªÀÌ ÀÔ·ÂµÇÁö ¾Ê¾ÒÀ»¶§?
+			// ê°’ì´ ì…ë ¥ë˜ì§€ ì•Šì•˜ì„ë•Œ?
 
 			if (phoneNum4.equals("")) {
 
-				System.out.println("¹øÈ£°¡ ÀÔ·ÂµÇÁö ¾Ê¾Ò½À´Ï´Ù. ´Ù½Ã È®ÀÎÇØÁÖ¼¼¿ä.");
+				System.out.println("ë²ˆí˜¸ê°€ ì…ë ¥ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤. ë‹¤ì‹œ í™•ì¸í•´ì£¼ì„¸ìš”.");
 
-				// inputPhoneNumber ÀÔ·Â°ªÀÇ ±æÀÌ°¡ 4°¡ ¾Æ´Ï°Å°Å³ª, ¼ıÀÚ°¡ ¾Æ´Ò¶§
+				// inputPhoneNumber ì…ë ¥ê°’ì˜ ê¸¸ì´ê°€ 4ê°€ ì•„ë‹ˆê±°ê±°ë‚˜, ìˆ«ìê°€ ì•„ë‹ë•Œ
 			} else if (phoneNum4.length() != 4 || !Pattern.matches(pattern2, phoneNum4)) {
-				System.out.println("¿Ã¹Ù¸¥ ¹øÈ£ Çü½ÄÀÌ ¾Æ´Õ´Ï´Ù. ´Ù½Ã È®ÀÎÇØÁÖ¼¼¿ä.");
-				cure.cureMethod(scanner);
+				System.out.println("ì˜¬ë°”ë¥¸ ë²ˆí˜¸ í˜•ì‹ì´ ì•„ë‹™ë‹ˆë‹¤. ë‹¤ì‹œ í™•ì¸í•´ì£¼ì„¸ìš”.");
+				cure.cureMethod();
 
 			} else {
 
@@ -139,11 +150,11 @@ public class Cure {
 				}
 			}
 		} else {
-			System.out.println("º´¿øÀ» Àß¸ø ±âÀÔÇÏ¿´½À´Ï´Ù.");
-			cure.cureMethod(scanner);
+			System.out.println("ë³‘ì›ì„ ì˜ëª» ê¸°ì…í•˜ì˜€ìŠµë‹ˆë‹¤.");
+			cure.cureMethod();
 		}
 
-		// [ÀÌ¸§°ú µŞ¹øÈ£°¡ ÇØ´ç º´¿ø(¼­¿ï´ëº´¿ø) ¿¹¾à¸®½ºÆ®¿¡ ÀÖÀ½]
+		// [ì´ë¦„ê³¼ ë’·ë²ˆí˜¸ê°€ í•´ë‹¹ ë³‘ì›(ì„œìš¸ëŒ€ë³‘ì›) ì˜ˆì•½ë¦¬ìŠ¤íŠ¸ì— ìˆìŒ]
 
 	}
 
