@@ -1,92 +1,110 @@
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
-public class HospitalStart {
-	Scanner scanner = new Scanner(System.in);
+import java.util.ArrayList;
 
-	public String[] hospitallist = { "¼­¿ï´ëº´¿ø", "¾Æ»êº´¿ø", "ÀÌÈ­¿©´ëº´¿ø" };
-	public Hospital01[] hospitalarraylist = { Corona19.h1, Corona19.h2, Corona19.h3 };
-	static int chooseHospital;
+public class Hospital01 {
 
-	public void start() {
+	private int vaccin1; // í™”ì´ì
+	private int vaccin2; // ëª¨ë”ë‚˜
 
-		// º´¿ø ¼±ÅÃ
-		System.out.println("============  2.º´¿ø    ================");
-		System.out.println("ÇöÀç º´¿øÀ» ¼±ÅÃÇÏ¼¼¿ä!");
-		System.out.println("1.¼­¿ï´ëº´¿ø   2.¾Æ»êº´¿ø   3.ÀÌÈ­¿©´ëº´¿ø   4.¸ŞÀÎ¸Ş´º·Î ³ª°¡±â");
-		System.out.println("=====================================");
-		System.out.print("¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+	String name; // ë³‘ì› ì´ë¦„
+	private int unique_num; // ë³‘ì› ê³ ìœ  ë²ˆí˜¸
 
-		try {
-			chooseHospital = scanner.nextInt() - 1;
-			switch (chooseHospital) {
-			case 0:
-			case 1:
-			case 2:
-				Login login = new Login();
-				System.out.println(hospitallist[chooseHospital] + "ÀÌ ¼±ÅÃµÇ¾ú½À´Ï´Ù.");
-				login.loginstart(hospitalarraylist[chooseHospital]);
-				break;
-			case 3:
-				Corona19 corona19 = new Corona19();
-				corona19.coronaSystem();
-				break;
-			default:
-				System.out.println("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.");
-				start();
-				break;
-			}
+	Month month = new Month(); // ìº˜ë¦°ë”
 
-		} catch (InputMismatchException e) {
+	ArrayList<Membership> member = new ArrayList<Membership>(); // ë³‘ì› ê´€ê³„ì
 
-			System.out.println("¼ıÀÚ¸¸ ÀÔ·ÂÇÏ¼¼¿ä.");
-			scanner = new Scanner(System.in);
-			start();
+	ArrayList<Reservelist> rl = new ArrayList<Reservelist>(); // ì˜ˆì•½ ë¦¬ìŠ¤íŠ¸
 
-		}
-
+	public Hospital01(int unique_num, int vaccin1, int vaccin2, String name) {
+		super();
+		this.unique_num = unique_num;
+		this.vaccin1 = vaccin1;
+		this.vaccin2 = vaccin2;
+		this.name = name;
 	}
 
-	public void hospitalstart(int chooseHospital) {
-		// º´¿ø ¸Ş´º¼±ÅÃ
-		// int chooseHospital = Arrays.asList(hospitalarraylist).indexOf(hospital);
+	public Hospital01(int unique_num, int vaccin1, int vaccin2) {
+		super();
+		this.unique_num = unique_num;
+		this.vaccin1 = vaccin1;
+		this.vaccin2 = vaccin2;
+	}
 
-		System.out.println("============  " + hospitallist[chooseHospital] + "  ================");
-		System.out.println("¸Ş´º¸¦ ¼±ÅÃÇÏ¼¼¿ä.");
-		System.out.println("1.¹é½Å Á¶È¸     2.¹é½Å ¿äÃ»     3.º´¿ø ¼±ÅÃÀ¸·Î °¡±â");
-		System.out.println("=====================================");
-		System.out.print("¼ıÀÚ¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
+	public int getUnique_num() {
+		return unique_num;
+	}
 
-		try {
-			int choosemenu = scanner.nextInt();
+	public void setUnique_num(int unique_num) {
+		this.unique_num = unique_num;
+	}
 
-			if (choosemenu == 1) {
-				hospitalarraylist[chooseHospital].vaccinsearch();
-			} else if (choosemenu == 2) {
-				System.out.println(hospitallist[chooseHospital] + "ÀÇ ¹é½Å¿äÃ»ÀÔ´Ï´Ù.");
-				System.out.print("ÇÊ¿äÇÑ È­ÀÌÀÚ ¹é½Å¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
-				int inputV1 = scanner.nextInt();
-				System.out.print("ÇÊ¿äÇÑ ¸ğ´õ³ª ¹é½Å¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä : ");
-				int inputV2 = scanner.nextInt();
+	public int getVaccin1() {
+		return vaccin1;
+	}
 
-				hospitalarraylist[chooseHospital].vaccinrequest(hospitalarraylist[chooseHospital], inputV1, inputV2);
+	public void setVaccin1(int vaccin1) {
+		this.vaccin1 = vaccin1;
+	}
 
-			} else if (choosemenu == 3) {
-				start();
-			} else {
-				System.out.println("´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.");
-				hospitalstart(chooseHospital);
-			}
-		} catch (InputMismatchException e) {
-			System.out.println("¼ıÀÚ¸¸ ÀÔ·ÂÇÏ¼¼¿ä.");
-			scanner = new Scanner(System.in);
-			hospitalstart(chooseHospital);
+	public int getVaccin2() {
+		return vaccin2;
+	}
+
+	public void setVaccin2(int vaccin2) {
+		this.vaccin2 = vaccin2;
+	}
+
+	// í™•ì§„ ì—¬ë¶€ ë©”ì†Œë“œ(ê²€ì‚¬)
+
+	// ì¹˜ë£Œ ë©”ì†Œë“œ(ì¹˜ë£Œ)
+	public void hospitalCure(Hospital01 hospital, int vaccinSelect) {
+		if (vaccinSelect == 1) {
+			hospital.setVaccin1(hospital.getVaccin1() - 1);
+		} else if (vaccinSelect == 2) {
+			hospital.setVaccin2(hospital.getVaccin2() - 1);
+		} else {
+			System.out.println("ì˜ëª» ì„ íƒí•˜ì…¨ìŠµë‹ˆë‹¤.");
 		}
 	}
 
-	public static void main(String[] args) {
-		HospitalStart hospitalstart = new HospitalStart();
-		hospitalstart.start();
+	// ë°±ì‹  ì¡°íšŒ ë©”ì†Œë“œ
+	public void vaccinsearch() {// ë°±ì‹  ì¡°íšŒ
+		System.out.println("ë³‘ì›ì˜ í˜„ì¬ ë°±ì‹  ê°¯ìˆ˜");
+		System.out.println("í™”ì´ì : " + getVaccin1());
+		System.out.println("ëª¨ë”ë‚˜ : " + getVaccin2());
+
+		HospitalStart hs = new HospitalStart();
+	//	System.out.println("chooseHospital : " + hs.chooseHospital);
+		hs.hospitalstart(hs.chooseHospital);
 	}
 
+	// ë°±ì‹  ìš”ì²­ ë©”ì†Œë“œ
+	// ë°±ì‹  ìš”ì²­ ë©”ì†Œë“œ
+	public void vaccinrequest(Hospital01 hospital, int inputV1, int inputV2) {
+		Supplyer supplyer = new Supplyer();
+		if ((inputV1 <= supplyer.sv1) && (inputV2 <= supplyer.sv2)) {
+			supplyer.supply(hospital, inputV1, inputV2);
+			System.out.println("í™”ì´ì " + inputV1 + "ê°œì™€ " + "ëª¨ë”ë‚˜ " + inputV2 + "ê°œê°€ ì£¼ë¬¸ë˜ì—ˆìŠµë‹ˆë‹¤.");
+			System.out.println("í˜„ì¬  í™”ì´ì " + vaccin1 + "ê°œì™€ " + "ëª¨ë”ë‚˜ " + vaccin2 + "ê°œë¥¼ ê°€ì§€ê³  ìˆìŠµë‹ˆë‹¤.");
+		} else if ((inputV1 > supplyer.sv1) && (inputV2 > supplyer.sv2)) {
+			System.out.println("í™”ì´ì ë° ëª¨ë”ë‚˜ì˜ ë¬¼ëŸ‰ì´ ë¶€ì¡±í•©ë‹ˆë‹¤.");
+			System.out.println("í˜„ì¬ ì£¼ë¬¸ ê°€ëŠ¥í•œ í™”ì´ì ê°œìˆ˜ : " + supplyer.sv1 + " / ëª¨ë”ë‚˜ ê°œìˆ˜ : " + supplyer.sv2);
+		} else if (inputV1 > supplyer.sv1) {
+			System.out.println("í™”ì´ìì˜ ë¬¼ëŸ‰ì´ ë¶€ì¡±í•©ë‹ˆë‹¤. í˜„ì¬ ì£¼ë¬¸ ê°€ëŠ¥í•œ í™”ì´ì ê°œìˆ˜ : " + supplyer.sv1);
+		} else if (inputV2 > supplyer.sv2) {
+			System.out.println("ëª¨ë”ë‚˜ì˜ ë¬¼ëŸ‰ì´ ë¶€ì¡±í•©ë‹ˆë‹¤. í˜„ì¬ ì£¼ë¬¸ ê°€ëŠ¥í•œ ëª¨ë”ë‚˜ ê°œìˆ˜ : " + supplyer.sv2);
+		}
+
+		HospitalStart hs = new HospitalStart();
+		// hs.hospitalstart(HospitalStart.chooseHospital);
+		hs.hospitalstart(hs.chooseHospital);
+	}
+
+	public void add(int inputV1, int inputV2) {
+
+		this.vaccin1 += inputV1;
+		this.vaccin2 += inputV2;
+	}
+
+	
 }
