@@ -13,26 +13,26 @@ public class DashBoard {
 	}
 
 	public void dashboardstart() {
-		System.out.println("-------ÀüÃ¼ »óÈ²ÆÇ----------");
-		System.out.println("ÇöÀç È®ÁøÀÚ ¼ö : " + Test.infectionList.size() + "¸í"); // È®ÁøÀÚ ¸®½ºÆ® Á¶È¸
-		System.out.println("°Ë»ç ¿¹Á¤ÀÚ ¼ö : " + Consult.coronaTestList.size() + "¸í"); // °Ë»ç ¸®½ºÆ® Á¶È¸
-		System.out.println("´©Àû È®ÁøÀÚ ¼ö : " + (Test.infectionList.size() + Cure.treatmentCompletedList.size()) + "¸í"); // È®ÁøÀÚ
-																													// ¸®½ºÆ®
+		System.out.println("-------ì „ì²´ ìƒí™©íŒ----------");
+		System.out.println("í˜„ì¬ í™•ì§„ì ìˆ˜ : " + Test.infectionList.size() + "ëª…"); // í™•ì§„ì ë¦¬ìŠ¤íŠ¸ ì¡°íšŒ
+		//System.out.println("ê²€ì‚¬ ì˜ˆì •ì ìˆ˜ : " + Consult.coronaTestList.size() + "ëª…"); // ê²€ì‚¬ ë¦¬ìŠ¤íŠ¸ ì¡°íšŒ
+		System.out.println("ëˆ„ì  í™•ì§„ì ìˆ˜ : " + (Test.infectionList.size() + Cure.treatmentCompletedList.size()) + "ëª…"); // í™•ì§„ì
+																													// ë¦¬ìŠ¤íŠ¸
 																													// +
-																													// Ä¡·áÀÚ
-																													// ¸®½ºÆ®
-		System.out.println("´©Àû ¿ÏÄ¡ÀÚ ¼ö : " + Cure.treatmentCompletedList.size() + "¸í"); // Ä¡·áÀÚ ¸®½ºÆ®
-		System.out.println("´©Àû »ç¸ÁÀÚ ¼ö : " + Cure.deathList.size() + "¸í"); // »ç¸ÁÀÚ ¸®½ºÆ®
-		System.out.println("¹é½Å Á¢Á¾ÀÚ ¼ö : "
-				+ (Cure.treatmentCompletedList.size() + Cure.antibodyList.size() + Cure.deathList.size()) + "¸í"); // Ä¡·áÀÚ
-																													// ¸®½ºÆ®
+																													// ì¹˜ë£Œì
+																													// ë¦¬ìŠ¤íŠ¸
+		System.out.println("ëˆ„ì  ì™„ì¹˜ì ìˆ˜ : " + Cure.treatmentCompletedList.size() + "ëª…"); // ì¹˜ë£Œì ë¦¬ìŠ¤íŠ¸
+		System.out.println("ëˆ„ì  ì‚¬ë§ì ìˆ˜ : " + Cure.deathList.size() + "ëª…"); // ì‚¬ë§ì ë¦¬ìŠ¤íŠ¸
+		System.out.println("ë°±ì‹  ì ‘ì¢…ì ìˆ˜ : "
+				+ (Cure.treatmentCompletedList.size() + Cure.antibodyList.size() + Cure.deathList.size()) + "ëª…"); // ì¹˜ë£Œì
+																													// ë¦¬ìŠ¤íŠ¸
 																													// +
-																													// Ç×Ã¼»ı¼º
-																													// ¸®½ºÆ®
+																													// í•­ì²´ìƒì„±
+																													// ë¦¬ìŠ¤íŠ¸
 																													// +
-																													// »ç¸ÁÀÚ
-																													// ¸®½ºÆ®
-//		System.out.println("ÀçÈ®ÁøÀÚ ¼ö : " + "¸í");   //¹é½ÅÄ¡·á¿©ºÎ°¡ ÂüÀÎ»ç¶÷(Boolean Cure = true)ÀÎ »ç¶÷ÀÌ È®ÁøÀÚ ¸®½ºÆ®·Î µé¾î°¡
+																													// ì‚¬ë§ì
+																													// ë¦¬ìŠ¤íŠ¸
+//		System.out.println("ì¬í™•ì§„ì ìˆ˜ : " + "ëª…");   //ë°±ì‹ ì¹˜ë£Œì—¬ë¶€ê°€ ì°¸ì¸ì‚¬ëŒ(Boolean Cure = true)ì¸ ì‚¬ëŒì´ í™•ì§„ì ë¦¬ìŠ¤íŠ¸ë¡œ ë“¤ì–´ê°€
 
 		MainSearch mainsearch = new MainSearch();
 		mainsearch.start();
@@ -42,10 +42,10 @@ public class DashBoard {
 	/*
 	 * public void backmenu() {
 	 * 
-	 * System.out.println("µÚ·Î °¡½Ã°Ú½À´Ï±î? y/n "); char input = scanner.next().charAt(0);
+	 * System.out.println("ë’¤ë¡œ ê°€ì‹œê² ìŠµë‹ˆê¹Œ? y/n "); char input = scanner.next().charAt(0);
 	 * if(input == 'y') { MainSearch mainsearch = new MainSearch();
 	 * mainsearch.start(); }else if(input == 'n') { //system.out.println }else {
-	 * System.out.println("´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä."); } }
+	 * System.out.println("ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”."); } }
 	 */
 
 }
