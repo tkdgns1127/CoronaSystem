@@ -2,32 +2,32 @@
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-public class ReservationCancle { // ¿¹¾à Ãë¼Ò Å¬·¡½º
+public class ReservationCancle { // ì˜ˆì•½ ì·¨ì†Œ í´ë˜ìŠ¤
 
 	Scanner sc = new Scanner(System.in);
-	// String endNum = "010-7927-7479"; // ¿¹¾à ¸®½ºÆ®ÀÇ µŞ¹øÈ£
+	// String endNum = "010-7927-7479"; // ì˜ˆì•½ ë¦¬ìŠ¤íŠ¸ì˜ ë’·ë²ˆí˜¸
 	String endNum;
 
-	// ¿¹¾à¸®½ºÆ® Á¶È¸ & ÀÏÄ¡ È®ÀÎ ¸Ş¼Òµå
+	// ì˜ˆì•½ë¦¬ìŠ¤íŠ¸ ì¡°íšŒ & ì¼ì¹˜ í™•ì¸ ë©”ì†Œë“œ
 	public void res_correct(String endNum) {
 
 		for (Reservelist element : Corona19.h1.rl) {
 			if (element.getPhoneNum().substring(9).equals(endNum)) {
 				System.out.println("================================================");
-				System.out.println("¿¹¾à È®ÀÎ");
-				System.out.println("ÀÌ¸§ : " + element.getName() + "\tÀüÈ­¹øÈ£ : " + element.getPhoneNum());
-				System.out.println("¿¹¾à³¯Â¥ " + element.getDayNum() + "\t¿¹¾àº´¿ø : " + Corona19.h1.name);
+				System.out.println("ì˜ˆì•½ í™•ì¸");
+				System.out.println("ì´ë¦„ : " + element.getName() + "\tì „í™”ë²ˆí˜¸ : " + element.getPhoneNum());
+				System.out.println("ì˜ˆì•½ë‚ ì§œ " + element.getDayNum() + "\tì˜ˆì•½ë³‘ì› : " + Corona19.h1.name);
 				System.out.println("================================================");
-				System.out.println("¿¹¾àÇÑ Á¤º¸°¡ ¸Â½À´Ï±î?");
+				System.out.println("ì˜ˆì•½í•œ ì •ë³´ê°€ ë§ìŠµë‹ˆê¹Œ?");
 			}
 		}
 	}
 
-	public void res_cancle() { // ¿¹¾à Ãë¼Ò ¸Ş¼Òµå
+	public void res_cancle() { // ì˜ˆì•½ ì·¨ì†Œ ë©”ì†Œë“œ
 
 		ReserveMain reserve = new ReserveMain();
-		System.out.println("¿¹¾àÇÏ½Å ºĞÀÇ ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä. ex)010-0000-0000");
-		System.out.print("¹øÈ£ ÀÔ·Â :");
+		System.out.println("ì˜ˆì•½í•˜ì‹  ë¶„ì˜ ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”. ex)010-0000-0000");
+		System.out.print("ë²ˆí˜¸ ì…ë ¥ :");
 		endNum = sc.nextLine();
 
 		boolean flag = Pattern.matches("^01(?:0|1|[6-9])-(?:\\d{3}|\\d{4})-\\d{4}$", endNum);
@@ -39,65 +39,107 @@ public class ReservationCancle { // ¿¹¾à Ãë¼Ò Å¬·¡½º
 			for (Reservelist element : Corona19.h1.rl) {
 				if (element.getPhoneNum().equals(endNum)) {
 					tf = false;
-					System.out.println("===================¿¹¾à È®ÀÎ=============================");
+					System.out.println("===================ì˜ˆì•½ í™•ì¸=============================");
 
-					System.out.println("ÀÌ¸§ : " + element.getName() + "\tÀüÈ­¹øÈ£ : " + element.getPhoneNum());
-					System.out.println("¿¹¾à³¯Â¥ " + element.getDayNum() + "\t¿¹¾àº´¿ø : " + Corona19.h1.name);
+					System.out.println("ì´ë¦„ : " + element.getName() + "\tì „í™”ë²ˆí˜¸ : " + element.getPhoneNum());
+					System.out.println("ì˜ˆì•½ë‚ ì§œ " + element.getDayNum() + "\tì˜ˆì•½ë³‘ì› : " + Corona19.h1.name);
 					System.out.println("======================================================");
-					System.out.println("¿¹¾àÀ» Ãë¼ÒÇÏ½Ã°Ú½À´Ï±î? [Yes/No]");
+					System.out.println("ì˜ˆì•½ì„ ì·¨ì†Œí•˜ì‹œê² ìŠµë‹ˆê¹Œ? [Yes/No]");
 					String yn = sc.nextLine();
 					if (yn.equals("Yes")) {
+
+						String[] res_day = element.getDayNum().split("/");
+						String res_day1 = res_day[1];
+
+						for (int i = 0; i < Corona19.h1.month.day.size(); i++) {
+							if (Corona19.h1.month.day.get(i).getDay().equals(res_day1)) {
+
+								Corona19.h1.month.day.get(i).setRes_possibility(true);
+
+							}
+
+						}
+
 						Corona19.h1.rl.remove(element);
-						System.out.println("¿¹¾àÀÌ Ãë¼Ò µÇ¾ú½À´Ï´Ù.");
+						System.out.println("ì˜ˆì•½ì´ ì·¨ì†Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
+
 						reserve.reserveStart();
 					} else {
-						System.out.println("¿¹¾à Ãë¼Ò°¡ Ãë¼ÒµÇ¾ú½À´Ï´Ù.");
+						System.out.println("ì˜ˆì•½ ì·¨ì†Œê°€ ì·¨ì†Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 						reserve.reserveStart();
 
 					}
 				}
 			}
 
-			// ¾Æ»ê º´¿ø
+			// ì•„ì‚° ë³‘ì›
 			for (Reservelist element : Corona19.h2.rl) {
 				if (element.getPhoneNum().equals(endNum)) {
 					tf = false;
-					System.out.println("===================¿¹¾à È®ÀÎ=============================");
+					System.out.println("===================ì˜ˆì•½ í™•ì¸=============================");
 
-					System.out.println("ÀÌ¸§ : " + element.getName() + "´Ô" + "\t\tÀüÈ­¹øÈ£: " + element.getPhoneNum());
-					System.out.println("¿¹¾à³¯Â¥ " + element.getDayNum() + "\t\t¿¹¾àº´¿ø : " + Corona19.h2.name);
+					System.out.println("ì´ë¦„ : " + element.getName() + "ë‹˜" + "\t\tì „í™”ë²ˆí˜¸: " + element.getPhoneNum());
+					System.out.println("ì˜ˆì•½ë‚ ì§œ " + element.getDayNum() + "\t\tì˜ˆì•½ë³‘ì› : " + Corona19.h2.name);
 					System.out.println("======================================================");
-					System.out.println("¿¹¾àÀ» Ãë¼ÒÇÏ½Ã°Ú½À´Ï±î? [Yes/No]");
+					System.out.println("ì˜ˆì•½ì„ ì·¨ì†Œí•˜ì‹œê² ìŠµë‹ˆê¹Œ? [Yes/No]");
 					String yn = sc.nextLine();
 					if (yn.equals("Yes")) {
+						
+						
+						String[] res_day = element.getDayNum().split("/");
+						String res_day1 = res_day[1];
+
+						for (int i = 0; i < Corona19.h2.month.day.size(); i++) {
+							if (Corona19.h2.month.day.get(i).getDay().equals(res_day1)) {
+
+								Corona19.h2.month.day.get(i).setRes_possibility(true);
+
+							}
+
+						}
+
 						Corona19.h2.rl.remove(element);
-						System.out.println("¿¹¾àÀÌ Ãë¼Ò µÇ¾ú½À´Ï´Ù.");
+						System.out.println("ì˜ˆì•½ì´ ì·¨ì†Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
+
 						reserve.reserveStart();
 					} else {
-						System.out.println("¿¹¾à Ãë¼Ò°¡ Ãë¼ÒµÇ¾ú½À´Ï´Ù.");
+						System.out.println("ì˜ˆì•½ ì·¨ì†Œê°€ ì·¨ì†Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 						reserve.reserveStart();
 
 					}
 				}
 			}
 
-			// ÀÌÈ­¿©´ëº´¿ø
+			// ì´í™”ì—¬ëŒ€ë³‘ì›
 			for (Reservelist element : Corona19.h3.rl) {
 				if (element.getPhoneNum().equals(endNum)) {
 					tf = false;
-					System.out.println("===================¿¹¾à È®ÀÎ=============================");
+					System.out.println("===================ì˜ˆì•½ í™•ì¸=============================");
 
-					System.out.println("ÀÌ¸§ : " + element.getName() + "\tÀüÈ­¹øÈ£ : " + element.getPhoneNum());
-					System.out.println("¿¹¾à³¯Â¥ " + element.getDayNum() + "\t¿¹¾àº´¿ø : " + Corona19.h3.name);
+					System.out.println("ì´ë¦„ : " + element.getName() + "\tì „í™”ë²ˆí˜¸ : " + element.getPhoneNum());
+					System.out.println("ì˜ˆì•½ë‚ ì§œ " + element.getDayNum() + "\tì˜ˆì•½ë³‘ì› : " + Corona19.h3.name);
 					System.out.println("======================================================");
-					System.out.println("¿¹¾àÀ» Ãë¼ÒÇÏ½Ã°Ú½À´Ï±î? [Yes/No]");
+					System.out.println("ì˜ˆì•½ì„ ì·¨ì†Œí•˜ì‹œê² ìŠµë‹ˆê¹Œ? [Yes/No]");
 					String yn = sc.nextLine();
 					if (yn.equals("Yes")) {
-						Corona19.h1.rl.remove(element);
-						System.out.println("¿¹¾àÀÌ Ãë¼Ò µÇ¾ú½À´Ï´Ù.");
+						String[] res_day = element.getDayNum().split("/");
+						String res_day1 = res_day[1];
+
+						for (int i = 0; i < Corona19.h3.month.day.size(); i++) {
+							if (Corona19.h3.month.day.get(i).getDay().equals(res_day1)) {
+
+								Corona19.h3.month.day.get(i).setRes_possibility(true);
+
+							}
+
+						}
+
+						Corona19.h3.rl.remove(element);
+						System.out.println("ì˜ˆì•½ì´ ì·¨ì†Œ ë˜ì—ˆìŠµë‹ˆë‹¤.");
+
 						reserve.reserveStart();
 					} else {
-						System.out.println("¿¹¾à Ãë¼Ò°¡ Ãë¼ÒµÇ¾ú½À´Ï´Ù.");
+						System.out.println("ì˜ˆì•½ ì·¨ì†Œê°€ ì·¨ì†Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 						reserve.reserveStart();
 
 					}
@@ -105,13 +147,13 @@ public class ReservationCancle { // ¿¹¾à Ãë¼Ò Å¬·¡½º
 			}
 			if (tf) {
 
-				System.out.println("¿¹¾à ¸®½ºÆ®¿¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+				System.out.println("ì˜ˆì•½ ë¦¬ìŠ¤íŠ¸ì— ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 				reserve.reserveStart();
 
 			}
 
 		} else {
-			System.out.println("ÀüÈ­¹øÈ£ Çü½ÄÀÌ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+			System.out.println("ì „í™”ë²ˆí˜¸ í˜•ì‹ì´ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 			reserve.reserveStart();
 		}
 	}
