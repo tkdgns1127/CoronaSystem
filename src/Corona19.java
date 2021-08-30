@@ -4,9 +4,9 @@ import java.util.Scanner;
 
 public class Corona19 {
 
-	public static Hospital01 h1 = new Hospital01(1111, 10, 10, "¼­¿ï´ëº´¿ø");// ¼­¿ï´ëº´¿ø
-	public static Hospital01 h2 = new Hospital01(1234, 5, 9, "¾Æ»êº´¿ø");// ¾Æ»êº´¿ø
-	public static Hospital01 h3 = new Hospital01(0000, 2, 1, "ÀÌÈ­¿©´ëº´¿ø");// ÀÌÈ­¿©´ëº´¿ø
+	public static Hospital01 h1 = new Hospital01(1111, 0, 0, "ì„œìš¸ëŒ€ë³‘ì›");// ì„œìš¸ëŒ€ë³‘ì›
+	public static Hospital01 h2 = new Hospital01(1234, 0, 0, "ì•„ì‚°ë³‘ì›");// ì•„ì‚°ë³‘ì›
+	public static Hospital01 h3 = new Hospital01(2222, 0, 0, "ì´í™”ì—¬ëŒ€ë³‘ì›");// ì´í™”ì—¬ëŒ€ë³‘ì›
 
 	public void mainPatientStart() {
 		Patient pp = new Patient();
@@ -18,20 +18,17 @@ public class Corona19 {
 		hs.start();
 	}
 
-	public void mainSearchStart() {
-		MainSearch ms = new MainSearch();
-		ms.start();
-	}
+	
 
 	public void coronaSystem() {
 
-		Corona19 corona = new Corona19();// È¯ÀÚ Å¬·¡½º, º´¿ø Å¬·¡½º, Á¶È¸ Å¬·¡½º °´Ã¼ »ı¼º
+		Corona19 corona = new Corona19();// í™˜ì í´ë˜ìŠ¤, ë³‘ì› í´ë˜ìŠ¤, ì¡°íšŒ í´ë˜ìŠ¤ ê°ì²´ ìƒì„±
 
 		Scanner sc = new Scanner(System.in);
 
 		System.out.println("===============================");
-		System.out.println("¸Ş´º¸¦ ¼±ÅÃÇÏ¼¼¿ä!");
-		System.out.println("1.È¯ÀÚ 2.º´¿ø 3.Á¶È¸");
+		System.out.println("ë©”ë‰´ë¥¼ ì„ íƒí•˜ì„¸ìš”!");
+		System.out.println("1.í™˜ì 2.ë³‘ì›");
 		System.out.println("===============================");
 		try {
 			int num = sc.nextInt();
@@ -39,13 +36,11 @@ public class Corona19 {
 				mainPatientStart();
 			} else if (num == 2) {
 				mainHospitalStart();
-			} else if (num == 3) {
-				mainSearchStart();
-			} else
-				System.out.println("¼ıÀÚ¸¦ ´Ù½Ã ÀÔ·ÂÇÏ¼¼¿ä.");
+			}else
+				System.out.println("ìˆ«ìë¥¼ ë‹¤ì‹œ ì…ë ¥í•˜ì„¸ìš”.");
 			coronaSystem();
 		} catch (InputMismatchException e) {
-			System.out.println("¼ıÀÚ¸¸ ÀÔ·ÂÇÏ¼¼¿ä.");
+			System.out.println("ìˆ«ìë§Œ ì…ë ¥í•˜ì„¸ìš”.");
 			sc = new Scanner(System.in);
 			coronaSystem();
 		}
@@ -54,18 +49,20 @@ public class Corona19 {
 
 	public static void main(String[] args) {
 
-		// µ¥ÀÌÅÍ ÀÔ·Â
-		Test.infectionList.add(new Person("¹Ú»óÈÆ", 25, "010-7926-7460", true));
-		Test.infectionList.add(new Person("ÀÌÀ¯°æ", 45, "010-7925-7471", true));
-		Test.infectionList.add(new Person("¹Ú°æÇÑ", 46, "010-7924-7472", true));
-		Test.infectionList.add(new Person("¾ÆÀÌÀ¯", 29, "010-7923-7473", true));
-		Test.infectionList.add(new Person("ÀÌÈ­ÀÚ", 78, "010-7922-7474", true));
-		Test.infectionList.add(new Person("±èµµÇö", 30, "010-7921-7475", true));
-		Test.infectionList.add(new Person("ÀÌ±âÀÚ", 38, "010-7920-7476", true));
-		Test.infectionList.add(new Person("ÁöÇÑ¾ó", 19, "010-7919-7477", true));
-		Test.infectionList.add(new Person("È­ÀÌÀÚ", 61, "010-1127-7478", true));
+		// ë°ì´í„° ì…ë ¥
+		/*Test.infectionList.add(new Person("ë°•ìƒí›ˆ", 25, "010-7926-7460", true));
+		Test.infectionList.add(new Person("ì´ìœ ê²½", 45, "010-7925-7471", true));
+		Test.infectionList.add(new Person("ë°•ê²½í•œ", 46, "010-7924-7472", true));
+		Test.infectionList.add(new Person("ì•„ì´ìœ ", 29, "010-7923-7473", true));
+		Test.infectionList.add(new Person("ì´í™”ì", 78, "010-7922-7474", true));
+		Test.infectionList.add(new Person("ê¹€ë„í˜„", 30, "010-7921-7475", true));
+		Test.infectionList.add(new Person("ì´ê¸°ì", 38, "010-7920-7476", true));
+		Test.infectionList.add(new Person("ì§€í•œì–¼", 19, "010-7919-7477", true));
+		Test.infectionList.add(new Person("í™”ì´ì", 61, "010-1127-7478", true));
 
-		Corona19 corona = new Corona19();// È¯ÀÚ Å¬·¡½º, º´¿ø Å¬·¡½º, Á¶È¸ Å¬·¡½º °´Ã¼ »ı¼º
+		Cure.treatmentCompletedList.add(new Person("ë„í˜„ë„", 25, "010-8000-1234", true));
+		*/
+		Corona19 corona = new Corona19();// í™˜ì í´ë˜ìŠ¤, ë³‘ì› í´ë˜ìŠ¤, ì¡°íšŒ í´ë˜ìŠ¤ ê°ì²´ ìƒì„±
 		corona.coronaSystem();
 
 	}
